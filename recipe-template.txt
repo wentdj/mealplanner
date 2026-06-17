@@ -1,0 +1,34 @@
+# New recipe template for process_recipe.py
+
+Section: Breakfasts
+Name: Example breakfast with eggs
+Tags: quick, egg, gf
+
+Ingredients:
+  Base ingredients:
+    - 4 large eggs
+    - 2 turkey bacon rashers
+    - 1/2 avocado
+    - 60 g cherry tomatoes
+  Optional add-ons:
+    - 1 slice GF sourdough (Dave)
+    - 15 g goat's cheese (Mel)
+
+Portions:
+  Dave:
+    - 4 large eggs
+    - 2 turkey bacon rashers
+    - 1/2 avocado
+    - 60 g cherry tomatoes
+    - 1 slice GF sourdough
+  Mel:
+    - 3 large eggs
+    - 2 turkey bacon rashers
+    - 1/2 avocado
+    - 60 g cherry tomatoes
+    - 15 g goat's cheese
+
+Method:
+  - Heat a pan over medium heat and cook the turkey bacon until crispy.
+  - Add eggs and cook gently until scrambled.
+  - Serve with avocado and tomatoes, plus the optional add-ons per person.

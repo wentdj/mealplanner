@@ -1,0 +1,24 @@
+Section: Lunches
+Name: Pork Tenderloin Rice Bowl
+Tags: gf, meal-prep
+
+Ingredients:
+  Base ingredients:
+    - pork tenderloin
+    - rice
+    - green beans
+
+Portions:
+  Dave:
+    - 200 g pork
+    - 250 g cooked rice
+    - 150 g beans
+  Mel:
+    - 150 g pork
+    - 120 g cooked rice
+    - 150 g beans
+
+Method:
+  - Grill pork.
+  - Cook rice and beans.
+  - Serve together.

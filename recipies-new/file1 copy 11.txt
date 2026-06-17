@@ -1,0 +1,28 @@
+Section: Lunches
+Name: Mediterranean Chicken Bowl
+Tags: gf, high-protein
+
+Ingredients:
+  Base ingredients:
+    - chicken breast
+    - quinoa
+    - cucumber
+    - tomatoes
+    - goat's cheese
+
+Portions:
+  Dave:
+    - 200 g chicken
+    - 200 g cooked quinoa
+    - 150 g vegetables
+    - 25 g goat's cheese
+  Mel:
+    - 150 g chicken
+    - 120 g cooked quinoa
+    - 150 g vegetables
+    - 20 g goat's cheese
+
+Method:
+  - Cook chicken and quinoa.
+  - Chop vegetables.
+  - Combine and top with goat's cheese.

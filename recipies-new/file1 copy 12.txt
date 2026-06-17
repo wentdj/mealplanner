@@ -1,0 +1,26 @@
+Section: Dinners
+Name: Chicken Fajita Bowls
+Tags: fresh, family, gf
+
+Ingredients:
+  Base ingredients:
+    - chicken breast
+    - peppers
+    - onions
+    - rice
+    - salsa
+
+Portions:
+  Dave:
+    - 220 g chicken
+    - 250 g cooked rice
+    - 200 g vegetables
+  Mel:
+    - 160 g chicken
+    - 120 g cooked rice
+    - 200 g vegetables
+
+Method:
+  - Cook chicken with fajita seasoning.
+  - Fry peppers and onions.
+  - Serve over rice with salsa.

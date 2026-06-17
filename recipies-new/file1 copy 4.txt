@@ -1,0 +1,33 @@
+Section: Breakfasts
+Name: Egg and Sweet Potato Hash
+Tags: egg, batch-cook, gf
+
+Ingredients:
+  Base ingredients:
+    - eggs
+    - sweet potato
+    - onions
+    - peppers
+  Optional add-ons:
+    - extra egg (Dave)
+    - goat's cheese (Mel)
+
+Portions:
+  Dave:
+    - 4 eggs
+    - 250 g sweet potato
+    - 50 g onion
+    - 80 g peppers
+    - 1 extra egg
+  Mel:
+    - 3 eggs
+    - 150 g sweet potato
+    - 50 g onion
+    - 80 g peppers
+    - 20 g goat's cheese
+
+Method:
+  - Roast sweet potato cubes.
+  - Fry onions and peppers.
+  - Add sweet potato and top with eggs.
+  - Cook until eggs are set.

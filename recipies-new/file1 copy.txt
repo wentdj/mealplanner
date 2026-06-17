@@ -1,0 +1,20 @@
+Section: Snacks
+Name: Boiled Eggs and Fruit
+Tags: snack, quick, protein
+
+Ingredients:
+  Base ingredients:
+    - eggs
+    - apple
+
+Portions:
+  Dave:
+    - 3 boiled eggs
+    - 1 apple
+  Mel:
+    - 2 boiled eggs
+    - 1 small apple
+
+Method:
+  - Boil eggs.
+  - Serve with fruit.

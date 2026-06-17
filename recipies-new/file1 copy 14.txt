@@ -1,0 +1,25 @@
+Section: Dinners
+Name: Chicken Curry and Rice
+Tags: fresh, gf
+
+Ingredients:
+  Base ingredients:
+    - chicken breast
+    - coconut milk
+    - curry spices
+    - rice
+
+Portions:
+  Dave:
+    - 220 g chicken
+    - 250 g cooked rice
+    - 100 ml coconut milk
+  Mel:
+    - 160 g chicken
+    - 120 g cooked rice
+    - 75 ml coconut milk
+
+Method:
+  - Cook chicken and spices.
+  - Add coconut milk.
+  - Simmer and serve over rice.

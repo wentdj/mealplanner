@@ -1,0 +1,19 @@
+Section: Snacks
+Name: Goat Cheese Protein Plate
+Tags: snack, gf
+
+Ingredients:
+  Base ingredients:
+    - hard goat's cheese
+    - grapes
+
+Portions:
+  Dave:
+    - 40 g goat's cheese
+    - 150 g grapes
+  Mel:
+    - 30 g goat's cheese
+    - 100 g grapes
+
+Method:
+  - Arrange on a plate and serve.

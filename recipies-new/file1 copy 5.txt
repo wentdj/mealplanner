@@ -1,0 +1,27 @@
+Section: Breakfasts
+Name: Goat Cheese Egg Muffins
+Tags: meal-prep, egg, gf
+
+Ingredients:
+  Base ingredients:
+    - eggs
+    - spinach
+    - peppers
+    - goat's cheese
+
+Portions:
+  Dave:
+    - 5 eggs
+    - 80 g spinach
+    - 60 g peppers
+    - 30 g goat's cheese
+  Mel:
+    - 3 eggs
+    - 80 g spinach
+    - 60 g peppers
+    - 20 g goat's cheese
+
+Method:
+  - Mix all ingredients.
+  - Pour into muffin tray.
+  - Bake at 180°C for 20 minutes.

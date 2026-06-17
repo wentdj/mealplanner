@@ -1,0 +1,32 @@
+Section: Breakfasts
+Name: Veggie Omelette Bowl
+Tags: egg, veggie, gf
+
+Ingredients:
+  Base ingredients:
+    - eggs
+    - spinach
+    - mushrooms
+    - peppers
+  Optional add-ons:
+    - cooked potatoes (Dave)
+    - goat's cheese (Mel)
+
+Portions:
+  Dave:
+    - 4 eggs
+    - 100 g spinach
+    - 80 g mushrooms
+    - 80 g peppers
+    - 200 g cooked potatoes
+  Mel:
+    - 3 eggs
+    - 100 g spinach
+    - 80 g mushrooms
+    - 80 g peppers
+    - 25 g goat's cheese
+
+Method:
+  - Sauté vegetables.
+  - Add beaten eggs and cook as an omelette.
+  - Fold and serve with optional extras.

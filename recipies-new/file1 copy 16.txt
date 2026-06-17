@@ -1,0 +1,25 @@
+Section: Dinners
+Name: Chicken Parmesan Style Bake
+Tags: comfort-food, gf
+
+Ingredients:
+  Base ingredients:
+    - chicken breast
+    - tomato sauce
+    - goat's cheese
+    - potatoes
+
+Portions:
+  Dave:
+    - 220 g chicken
+    - 250 g potatoes
+    - 35 g goat's cheese
+  Mel:
+    - 160 g chicken
+    - 150 g potatoes
+    - 25 g goat's cheese
+
+Method:
+  - Top chicken with tomato sauce and cheese.
+  - Bake until cooked.
+  - Serve with potatoes.

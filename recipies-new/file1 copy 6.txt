@@ -1,0 +1,32 @@
+Section: Breakfasts
+Name: Breakfast Burrito Bowl
+Tags: egg, high-protein, gf
+
+Ingredients:
+  Base ingredients:
+    - eggs
+    - turkey mince
+    - peppers
+    - salsa
+  Optional add-ons:
+    - rice (Dave)
+    - avocado (Mel)
+
+Portions:
+  Dave:
+    - 4 eggs
+    - 120 g turkey mince
+    - 80 g peppers
+    - 50 g salsa
+    - 150 g cooked rice
+  Mel:
+    - 3 eggs
+    - 90 g turkey mince
+    - 80 g peppers
+    - 50 g salsa
+    - 1/4 avocado
+
+Method:
+  - Cook turkey mince and peppers.
+  - Scramble eggs separately.
+  - Combine and top with salsa.

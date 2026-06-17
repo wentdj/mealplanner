@@ -1,0 +1,24 @@
+Section: Lunches
+Name: Turkey Sweet Potato Meal Prep
+Tags: batch-cook, gf
+
+Ingredients:
+  Base ingredients:
+    - turkey mince
+    - sweet potato
+    - broccoli
+
+Portions:
+  Dave:
+    - 200 g turkey mince
+    - 300 g sweet potato
+    - 150 g broccoli
+  Mel:
+    - 150 g turkey mince
+    - 180 g sweet potato
+    - 150 g broccoli
+
+Method:
+  - Roast sweet potatoes.
+  - Brown turkey mince.
+  - Steam broccoli and serve.

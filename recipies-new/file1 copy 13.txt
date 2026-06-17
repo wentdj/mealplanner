@@ -1,0 +1,26 @@
+Section: Dinners
+Name: Turkey Chilli
+Tags: batch-cook, gf
+
+Ingredients:
+  Base ingredients:
+    - turkey mince
+    - kidney beans
+    - tomatoes
+    - peppers
+    - rice
+
+Portions:
+  Dave:
+    - 220 g turkey mince
+    - 250 g cooked rice
+    - 150 g beans
+  Mel:
+    - 160 g turkey mince
+    - 120 g cooked rice
+    - 100 g beans
+
+Method:
+  - Brown turkey mince.
+  - Add vegetables and tomatoes.
+  - Simmer 30 minutes and serve with rice.

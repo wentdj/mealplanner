@@ -1,0 +1,20 @@
+Section: Snacks
+Name: Chicken Snack Box
+Tags: meal-prep, protein
+
+Ingredients:
+  Base ingredients:
+    - cooked chicken breast
+    - carrots
+    - cucumber
+
+Portions:
+  Dave:
+    - 150 g chicken
+    - 150 g vegetables
+  Mel:
+    - 100 g chicken
+    - 150 g vegetables
+
+Method:
+  - Slice ingredients and pack into containers.
