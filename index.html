@@ -1,0 +1,757 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans);color:var(--color-text-primary);font-size:15px;line-height:1.6}
+h2{font-size:18px;font-weight:500;margin-bottom:1rem}
+h3{font-size:16px;font-weight:500;margin-bottom:.5rem}
+.tabs{display:flex;gap:6px;padding:1rem 0 0;border-bottom:.5px solid var(--color-border-tertiary);margin-bottom:1.5rem;flex-wrap:wrap}
+.tab{padding:8px 16px;border:none;background:none;cursor:pointer;font-size:14px;font-weight:500;color:var(--color-text-secondary);border-radius:var(--border-radius-md) var(--border-radius-md) 0 0;border:.5px solid transparent;border-bottom:none;transition:all .15s}
+.tab.active{color:var(--color-text-primary);background:var(--color-background-primary);border-color:var(--color-border-tertiary);border-bottom-color:var(--color-background-primary);position:relative;top:1px}
+.tab:hover:not(.active){color:var(--color-text-primary);background:var(--color-background-secondary)}
+.panel{display:none}.panel.active{display:block}
+.macro-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem}
+.person-card{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.25rem}
+.person-card h3{margin-bottom:.25rem}
+.person-subtitle{font-size:13px;color:var(--color-text-secondary);margin-bottom:1rem}
+.macro-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:.5px solid var(--color-border-tertiary)}
+.macro-row:last-child{border-bottom:none;font-weight:500}
+.macro-label{font-size:13px;color:var(--color-text-secondary)}
+.macro-val{font-size:14px;font-weight:500}
+.macro-val.protein{color:#1D9E75}
+.macro-val.carbs{color:#185FA5}
+.macro-val.fats{color:#BA7517}
+.macro-val.cals{color:var(--color-text-primary)}
+.note-box{background:var(--color-background-secondary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:1rem;font-size:13px;color:var(--color-text-secondary);margin-top:.75rem}
+.section-label{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:var(--color-text-tertiary);margin:.5rem 0 .75rem}
+.meal-card{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);margin-bottom:1rem;overflow:hidden}
+.meal-header{display:flex;align-items:center;gap:12px;padding:1rem 1.25rem;cursor:pointer;user-select:none}
+.meal-header:hover{background:var(--color-background-secondary)}
+.meal-check{width:18px;height:18px;border:.5px solid var(--color-border-secondary);border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .15s}
+.meal-check.checked{background:#1D9E75;border-color:#1D9E75;color:#fff}
+.meal-title-block{flex:1}
+.meal-name{font-weight:500;font-size:15px}
+.meal-tags{display:flex;gap:6px;margin-top:4px;flex-wrap:wrap}
+.tag{font-size:11px;padding:2px 8px;border-radius:20px;font-weight:500}
+.tag.batch{background:#E1F5EE;color:#085041}
+.tag.quick{background:#E6F1FB;color:#0C447C}
+.tag.gf{background:#EAF3DE;color:#27500A}
+.tag.egg{background:#FAEEDA;color:#633806}
+.expand-icon{font-size:18px;color:var(--color-text-secondary);transition:transform .2s}
+.expand-icon.open{transform:rotate(180deg)}
+.meal-body{display:none;padding:0 1.25rem 1.25rem;border-top:.5px solid var(--color-border-tertiary)}
+.meal-body.open{display:block}
+.portion-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin:1rem 0}
+.portion-card{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:.875rem}
+.portion-name{font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--color-text-secondary);margin-bottom:.5rem}
+.portion-item{font-size:13px;padding:2px 0;color:var(--color-text-primary)}
+.steps-list{list-style:none;counter-reset:steps}
+.steps-list li{counter-increment:steps;display:flex;gap:10px;margin-bottom:.625rem;font-size:13px;line-height:1.5}
+.steps-list li::before{content:counter(steps);min-width:22px;height:22px;background:var(--color-background-secondary);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;color:var(--color-text-secondary);flex-shrink:0;margin-top:1px}
+.ingredients-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin:.75rem 0}
+.ing-item{font-size:13px;color:var(--color-text-primary);padding:3px 0}
+.ing-label{font-size:12px;color:var(--color-text-secondary)}
+.batch-card{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.25rem;margin-bottom:1rem}
+.batch-title{font-weight:500;font-size:15px;margin-bottom:.25rem;display:flex;align-items:center;gap:8px}
+.batch-body{font-size:13px;color:var(--color-text-secondary);margin-top:.75rem}
+.batch-tip{background:#E1F5EE;border-radius:var(--border-radius-md);padding:.75rem;margin-top:.75rem;font-size:13px;color:#085041}
+.batch-multiply{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:.75rem;margin-top:.75rem}
+.shopping-list{display:none}
+.shopping-list.has-items{display:block}
+.shop-empty{text-align:center;padding:2rem;color:var(--color-text-secondary);font-size:14px}
+.shop-cat{margin-bottom:1.25rem}
+.shop-cat-title{font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:var(--color-text-secondary);margin-bottom:.5rem;padding-bottom:.375rem;border-bottom:.5px solid var(--color-border-tertiary)}
+.shop-item{display:flex;justify-content:space-between;font-size:13px;padding:5px 0;border-bottom:.5px solid var(--color-border-tertiary)}
+.shop-item:last-child{border-bottom:none}
+.shop-qty{color:var(--color-text-secondary);font-size:12px}
+.selected-meals{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:.875rem;margin-bottom:1.25rem;font-size:13px}
+.selected-meals strong{font-weight:500;display:block;margin-bottom:.375rem}
+.sel-pill{display:inline-block;background:var(--color-background-primary);border:.5px solid var(--color-border-secondary);border-radius:20px;padding:2px 10px;margin:2px;font-size:12px}
+@media(max-width:540px){.macro-grid,.portion-grid,.ingredients-grid{grid-template-columns:1fr}}
+</style>
+
+<h2 id="top" style="padding-top:1rem">Dave & Mel — Personalised Meal Planner</h2>
+
+<nav class="tabs">
+  <button class="tab active" onclick="showPanel('macros',this)"><i class="ti ti-chart-bar" aria-hidden="true"></i> Macro guide</button>
+  <button class="tab" onclick="showPanel('recipes',this)"><i class="ti ti-chef-hat" aria-hidden="true"></i> Recipe directory</button>
+  <button class="tab" onclick="showPanel('batch',this)"><i class="ti ti-calendar-event" aria-hidden="true"></i> Batch cooking</button>
+  <button class="tab" onclick="showPanel('shopping',this)"><i class="ti ti-shopping-cart" aria-hidden="true"></i> Shopping list</button>
+</nav>
+
+<!-- SECTION 1: MACROS -->
+<div id="panel-macros" class="panel active">
+  <div class="macro-grid">
+    <div class="person-card">
+      <h3>Dave</h3>
+      <div class="person-subtitle">47 · 5'10" · 79 kg · Lean recomposition</div>
+      <div class="macro-row"><span class="macro-label">Daily calories</span><span class="macro-val cals">2,550 kcal</span></div>
+      <div class="macro-row"><span class="macro-label">Protein</span><span class="macro-val protein">175 g</span></div>
+      <div class="macro-row"><span class="macro-label">Carbohydrates</span><span class="macro-val carbs">280 g</span></div>
+      <div class="macro-row"><span class="macro-label">Fats</span><span class="macro-val fats">70 g</span></div>
+      <div class="macro-row"><span class="macro-label">Training days</span><span class="macro-val cals">2,700 kcal</span></div>
+      <div class="macro-row"><span class="macro-label">Rest days</span><span class="macro-val cals">2,350 kcal</span></div>
+      <div class="note-box">Slight caloric surplus on training days supports muscle protein synthesis. Protein at ~2.2 g/kg keeps lean mass. Carbs are periodised — higher pre/post workout.</div>
+    </div>
+    <div class="person-card">
+      <h3>Mel</h3>
+      <div class="person-subtitle">47 · 5'6" · 63.5 kg · Fat loss · GF/DF</div>
+      <div class="macro-row"><span class="macro-label">Daily calories</span><span class="macro-val cals">1,600 kcal</span></div>
+      <div class="macro-row"><span class="macro-label">Protein</span><span class="macro-val protein">130 g</span></div>
+      <div class="macro-row"><span class="macro-label">Carbohydrates</span><span class="macro-val carbs">140 g</span></div>
+      <div class="macro-row"><span class="macro-label">Fats</span><span class="macro-val fats">55 g</span></div>
+      <div class="macro-row"><span class="macro-label">Training days</span><span class="macro-val cals">1,700 kcal</span></div>
+      <div class="macro-row"><span class="macro-label">Rest days</span><span class="macro-val cals">1,500 kcal</span></div>
+      <div class="note-box">~400 kcal/day deficit targets ~0.5 kg/week fat loss over 10–12 weeks. High protein (~2.0 g/kg) preserves muscle. All meals are gluten-free and dairy-free (cow) by design. Goat products used freely.</div>
+    </div>
+  </div>
+  <div class="macro-grid">
+    <div class="person-card">
+      <h3>Protein timing</h3>
+      <div class="person-subtitle">Both — priority targets</div>
+      <div class="macro-row"><span class="macro-label">Pre-workout</span><span class="macro-val protein">20–30 g protein</span></div>
+      <div class="macro-row"><span class="macro-label">Post-workout</span><span class="macro-val protein">30–40 g protein</span></div>
+      <div class="macro-row"><span class="macro-label">Per meal minimum</span><span class="macro-val protein">30 g protein</span></div>
+      <div class="macro-row"><span class="macro-label">Before bed</span><span class="macro-val protein">20 g slow protein</span></div>
+    </div>
+    <div class="person-card">
+      <h3>Weekly fat loss projection</h3>
+      <div class="person-subtitle">Mel's expected timeline</div>
+      <div class="macro-row"><span class="macro-label">Wk 1–2 (water/glycogen)</span><span class="macro-val cals">1.0–1.5 kg</span></div>
+      <div class="macro-row"><span class="macro-label">Wk 3–10 (true fat loss)</span><span class="macro-val cals">~0.5 kg/wk</span></div>
+      <div class="macro-row"><span class="macro-label">10-week total</span><span class="macro-val cals">5–6 kg</span></div>
+      <div class="macro-row"><span class="macro-label">Expected body comp at hol</span><span class="macro-val protein">Noticeably leaner</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 2: RECIPES -->
+<div id="panel-recipes" class="panel">
+  <p style="font-size:13px;color:var(--color-text-secondary);margin-bottom:1rem">Tick the meals you want to cook this week — your shopping list will build automatically in Section 4.</p>
+
+  <div class="section-label">Breakfasts</div>
+
+  <div class="meal-card" id="meal-b1">
+    <div class="meal-header" onclick="toggleMeal('b1')">
+      <div class="meal-check" id="check-b1" onclick="event.stopPropagation();selectMeal('b1')"><i class="ti ti-check" style="font-size:12px;display:none" id="tick-b1"></i></div>
+      <div class="meal-title-block">
+        <div class="meal-name">Scrambled eggs with turkey bacon & avocado</div>
+        <div class="meal-tags"><span class="tag quick">15 min</span><span class="tag egg">Egg-heavy</span><span class="tag gf">GF/DF</span></div>
+      </div>
+      <i class="ti ti-chevron-down expand-icon" id="icon-b1" aria-hidden="true"></i>
+    </div>
+    <div class="meal-body" id="body-b1">
+      <div class="ingredients-grid">
+        <div><div class="ing-label">Base ingredients</div><div class="ing-item">Eggs</div><div class="ing-item">Turkey bacon rashers</div><div class="ing-item">Avocado</div><div class="ing-item">Cherry tomatoes</div><div class="ing-item">Olive oil</div><div class="ing-item">Salt, pepper, chives</div></div>
+        <div><div class="ing-label">Optional add-ons</div><div class="ing-item">Sourdough GF toast (Dave)</div><div class="ing-item">Goat's cheese crumble (Mel)</div></div>
+      </div>
+      <div class="portion-grid">
+        <div class="portion-card"><div class="portion-name">Dave — 2,550 kcal goal</div><div class="portion-item">4 large eggs</div><div class="portion-item">3 turkey bacon rashers</div><div class="portion-item">½ avocado</div><div class="portion-item">80 g cherry tomatoes</div><div class="portion-item">1 slice GF sourdough</div><div class="portion-item">1 tsp olive oil</div><div class="ing-label" style="margin-top:.5rem">~520 kcal · 42g P · 28g C · 24g F</div></div>
+        <div class="portion-card"><div class="portion-name">Mel — 1,600 kcal goal</div><div class="portion-item">3 large eggs</div><div class="portion-item">2 turkey bacon rashers</div><div class="portion-item">½ avocado</div><div class="portion-item">60 g cherry tomatoes</div><div class="portion-item">15 g goat's cheese</div><div class="portion-item">½ tsp olive oil</div><div class="ing-label" style="margin-top:.5rem">~380 kcal · 32g P · 6g C · 26g F</div></div>
+      </div>
+      <div class="section-label" style="margin-top:.75rem">Method</div>
+      <ol class="steps-list">
+        <li>Heat a non-stick pan over medium-high. Cook turkey bacon 2–3 min per side until crispy. Set aside.</li>
+        <li>Reduce heat to medium-low. Add oil, crack in eggs, season well. Fold gently with a spatula every 30 seconds — remove from heat while slightly underdone as residual heat finishes them.</li>
+        <li>Halve and slice avocado, season with salt and lemon if desired.</li>
+        <li>Dave: toast GF sourdough and plate alongside. Mel: crumble goat's cheese over eggs while still warm.</li>
+        <li>Serve with cherry tomatoes and chives scattered over the top.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="meal-card" id="meal-b2">
+    <div class="meal-header" onclick="toggleMeal('b2')">
+      <div class="meal-check" id="check-b2" onclick="event.stopPropagation();selectMeal('b2')"><i class="ti ti-check" style="font-size:12px;display:none" id="tick-b2"></i></div>
+      <div class="meal-title-block">
+        <div class="meal-name">Baked egg & vegetable frittata cups</div>
+        <div class="meal-tags"><span class="tag batch">Batch-friendly</span><span class="tag egg">Egg-heavy</span><span class="tag gf">GF/DF</span></div>
+      </div>
+      <i class="ti ti-chevron-down expand-icon" id="icon-b2" aria-hidden="true"></i>
+    </div>
+    <div class="meal-body" id="body-b2">
+      <div class="ingredients-grid">
+        <div><div class="ing-label">Base (makes 12 cups)</div><div class="ing-item">12 large eggs</div><div class="ing-item">150 g spinach</div><div class="ing-item">1 red pepper, diced</div><div class="ing-item">100 g turkey mince or diced turkey</div><div class="ing-item">½ red onion, finely diced</div><div class="ing-item">Salt, pepper, paprika, dried oregano</div></div>
+        <div><div class="ing-label">Extras</div><div class="ing-item">30 g goat's cheese (Mel's cups)</div><div class="ing-item">Olive oil spray</div></div>
+      </div>
+      <div class="portion-grid">
+        <div class="portion-card"><div class="portion-name">Dave</div><div class="portion-item">4 frittata cups</div><div class="portion-item">+ 1 slice GF sourdough</div><div class="portion-item">+ 1 banana or fruit</div><div class="ing-label" style="margin-top:.5rem">~510 kcal · 45g P · 32g C · 18g F</div></div>
+        <div class="portion-card"><div class="portion-name">Mel</div><div class="portion-item">3 frittata cups</div><div class="portion-item">+ 15 g goat's cheese crumbled in cups</div><div class="portion-item">+ Side salad leaves</div><div class="ing-label" style="margin-top:.5rem">~310 kcal · 30g P · 8g C · 17g F</div></div>
+      </div>
+      <div class="section-label" style="margin-top:.75rem">Method</div>
+      <ol class="steps-list">
+        <li>Preheat oven to 180°C. Spray a 12-hole muffin tin generously with olive oil.</li>
+        <li>Sauté diced onion and pepper in a pan for 3–4 min. Add turkey mince and cook through (5 min). Wilt in spinach. Season well with salt, pepper, paprika, oregano.</li>
+        <li>Divide the filling evenly among the 12 muffin holes. For Mel's 3 cups, add a pinch of goat's cheese to each.</li>
+        <li>Crack 1 egg into each cup (or beat eggs first and pour — both work). Top with a little extra seasoning.</li>
+        <li>Bake 15–18 min until set and lightly golden. Cool slightly before removing. Store in fridge up to 4 days or freeze.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="meal-card" id="meal-b3">
+    <div class="meal-header" onclick="toggleMeal('b3')">
+      <div class="meal-check" id="check-b3" onclick="event.stopPropagation();selectMeal('b3')"><i class="ti ti-check" style="font-size:12px;display:none" id="tick-b3"></i></div>
+      <div class="meal-title-block">
+        <div class="meal-name">Poached eggs on sweet potato hash</div>
+        <div class="meal-tags"><span class="tag quick">25 min</span><span class="tag egg">Egg-heavy</span><span class="tag gf">GF/DF</span></div>
+      </div>
+      <i class="ti ti-chevron-down expand-icon" id="icon-b3" aria-hidden="true"></i>
+    </div>
+    <div class="meal-body" id="body-b3">
+      <div class="ingredients-grid">
+        <div><div class="ing-label">Base ingredients</div><div class="ing-item">Sweet potato</div><div class="ing-item">Eggs</div><div class="ing-item">Red onion</div><div class="ing-item">Spinach</div><div class="ing-item">Olive oil</div><div class="ing-item">Smoked paprika, garlic powder, salt</div></div>
+      </div>
+      <div class="portion-grid">
+        <div class="portion-card"><div class="portion-name">Dave</div><div class="portion-item">300 g sweet potato</div><div class="portion-item">3 eggs poached</div><div class="portion-item">½ red onion</div><div class="portion-item">Handful spinach</div><div class="portion-item">1½ tsp olive oil</div><div class="ing-label" style="margin-top:.5rem">~540 kcal · 32g P · 62g C · 19g F</div></div>
+        <div class="portion-card"><div class="portion-name">Mel</div><div class="portion-item">200 g sweet potato</div><div class="portion-item">2 eggs poached</div><div class="portion-item">½ red onion</div><div class="portion-item">Handful spinach</div><div class="portion-item">1 tsp olive oil</div><div class="ing-label" style="margin-top:.5rem">~370 kcal · 21g P · 43g C · 13g F</div></div>
+      </div>
+      <div class="section-label" style="margin-top:.75rem">Method</div>
+      <ol class="steps-list">
+        <li>Grate or finely dice sweet potato. Dice red onion finely.</li>
+        <li>Heat oil in a non-stick pan over medium-high. Add sweet potato and onion, press into an even layer. Season with paprika, garlic powder, salt. Cook 5 min without stirring, then flip and cook another 4–5 min until golden and cooked through.</li>
+        <li>Wilt spinach on top of the hash for the last minute of cooking.</li>
+        <li>Meanwhile, bring a pan of water to a gentle simmer. Add a splash of white vinegar. Crack eggs into a cup, swirl the water, slide eggs in. Poach 3 min for runny yolks.</li>
+        <li>Serve poached eggs directly on the hash.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="section-label">Lunches</div>
+
+  <div class="meal-card" id="meal-l1">
+    <div class="meal-header" onclick="toggleMeal('l1')">
+      <div class="meal-check" id="check-l1" onclick="event.stopPropagation();selectMeal('l1')"><i class="ti ti-check" style="font-size:12px;display:none" id="tick-l1"></i></div>
+      <div class="meal-title-block">
+        <div class="meal-name">Herbed chicken & egg salad bowl</div>
+        <div class="meal-tags"><span class="tag quick">15 min</span><span class="tag egg">Egg-heavy</span><span class="tag gf">GF/DF</span></div>
+      </div>
+      <i class="ti ti-chevron-down expand-icon" id="icon-l1" aria-hidden="true"></i>
+    </div>
+    <div class="meal-body" id="body-l1">
+      <div class="ingredients-grid">
+        <div><div class="ing-label">Base ingredients</div><div class="ing-item">Cooked chicken breast</div><div class="ing-item">Hard-boiled eggs</div><div class="ing-item">Mixed salad leaves</div><div class="ing-item">Cucumber</div><div class="ing-item">Cherry tomatoes</div><div class="ing-item">Olive oil, lemon juice, Dijon mustard</div><div class="ing-item">Fresh parsley or dill</div></div>
+      </div>
+      <div class="portion-grid">
+        <div class="portion-card"><div class="portion-name">Dave</div><div class="portion-item">180 g chicken breast, sliced</div><div class="portion-item">2 hard-boiled eggs, halved</div><div class="portion-item">80 g mixed leaves</div><div class="portion-item">½ cucumber, 80 g tomatoes</div><div class="portion-item">1 tbsp olive oil + lemon</div><div class="portion-item">Rice cakes (2) on side</div><div class="ing-label" style="margin-top:.5rem">~560 kcal · 62g P · 18g C · 24g F</div></div>
+        <div class="portion-card"><div class="portion-name">Mel</div><div class="portion-item">130 g chicken breast, sliced</div><div class="portion-item">2 hard-boiled eggs, halved</div><div class="portion-item">80 g mixed leaves</div><div class="portion-item">½ cucumber, 60 g tomatoes</div><div class="portion-item">1 tsp olive oil + lemon</div><div class="portion-item">20 g goat's cheese crumbled</div><div class="ing-label" style="margin-top:.5rem">~390 kcal · 47g P · 8g C · 19g F</div></div>
+      </div>
+      <div class="section-label" style="margin-top:.75rem">Method</div>
+      <ol class="steps-list">
+        <li>Boil eggs 8–9 min for hard yolks. Cool in cold water, peel and halve.</li>
+        <li>Slice cooked chicken breast (use leftover batch-cooked or quickly pan-fry in olive oil with salt and herbs — 4–5 min per side).</li>
+        <li>Whisk together 1 tbsp olive oil, juice of ½ lemon, a dot of Dijon mustard (check it's GF), salt and pepper.</li>
+        <li>Arrange leaves, cucumber, tomatoes. Top with chicken and eggs. Drizzle dressing.</li>
+        <li>Mel: scatter goat's cheese. Dave: serve with 2 rice cakes alongside.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="meal-card" id="meal-l2">
+    <div class="meal-header" onclick="toggleMeal('l2')">
+      <div class="meal-check" id="check-l2" onclick="event.stopPropagation();selectMeal('l2')"><i class="ti ti-check" style="font-size:12px;display:none" id="tick-l2"></i></div>
+      <div class="meal-title-block">
+        <div class="meal-name">Turkey & egg fried rice (cauliflower or rice)</div>
+        <div class="meal-tags"><span class="tag quick">20 min</span><span class="tag egg">Egg-heavy</span><span class="tag gf">GF/DF</span></div>
+      </div>
+      <i class="ti ti-chevron-down expand-icon" id="icon-l2" aria-hidden="true"></i>
+    </div>
+    <div class="meal-body" id="body-l2">
+      <div class="ingredients-grid">
+        <div><div class="ing-label">Base ingredients</div><div class="ing-item">Cooked turkey mince or diced turkey</div><div class="ing-item">Eggs</div><div class="ing-item">Cooked white or basmati rice</div><div class="ing-item">Frozen peas and sweetcorn</div><div class="ing-item">Tamari (GF soy sauce)</div><div class="ing-item">Garlic, ginger, sesame oil</div><div class="ing-item">Spring onions</div></div>
+        <div><div class="ing-label">Mel's swap</div><div class="ing-item">Use cauliflower rice (pre-riced) for lower carbs, or use less rice</div></div>
+      </div>
+      <div class="portion-grid">
+        <div class="portion-card"><div class="portion-name">Dave</div><div class="portion-item">150 g cooked turkey</div><div class="portion-item">2 eggs (scrambled in pan)</div><div class="portion-item">180 g cooked rice</div><div class="portion-item">60 g peas & sweetcorn</div><div class="portion-item">2 tsp tamari, sesame oil</div><div class="ing-label" style="margin-top:.5rem">~590 kcal · 55g P · 60g C · 14g F</div></div>
+        <div class="portion-card"><div class="portion-name">Mel</div><div class="portion-item">130 g cooked turkey</div><div class="portion-item">2 eggs (scrambled in pan)</div><div class="portion-item">80 g cooked rice + 100 g cauliflower rice</div><div class="portion-item">50 g peas & sweetcorn</div><div class="portion-item">2 tsp tamari, sesame oil</div><div class="ing-label" style="margin-top:.5rem">~410 kcal · 46g P · 32g C · 12g F</div></div>
+      </div>
+      <div class="section-label" style="margin-top:.75rem">Method</div>
+      <ol class="steps-list">
+        <li>Heat a wok or large pan over high heat. Add a little sesame oil, fry garlic and ginger 30 seconds.</li>
+        <li>Add turkey and stir-fry 3–4 min until slightly crispy at edges.</li>
+        <li>Push turkey to the side. Crack eggs in, scramble quickly until just set, then mix through the turkey.</li>
+        <li>Add rice (and cauliflower rice for Mel), frozen peas and corn. Stir-fry everything together on high heat 3–4 min.</li>
+        <li>Season with tamari to taste. Finish with sliced spring onions and a final drizzle of sesame oil.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="meal-card" id="meal-l3">
+    <div class="meal-header" onclick="toggleMeal('l3')">
+      <div class="meal-check" id="check-l3" onclick="event.stopPropagation();selectMeal('l3')"><i class="ti ti-check" style="font-size:12px;display:none" id="tick-l3"></i></div>
+      <div class="meal-title-block">
+        <div class="meal-name">Spanish-style baked eggs (piperade)</div>
+        <div class="meal-tags"><span class="tag batch">Batch-friendly</span><span class="tag egg">Egg-heavy</span><span class="tag gf">GF/DF</span></div>
+      </div>
+      <i class="ti ti-chevron-down expand-icon" id="icon-l3" aria-hidden="true"></i>
+    </div>
+    <div class="meal-body" id="body-l3">
+      <div class="ingredients-grid">
+        <div><div class="ing-label">Base ingredients</div><div class="ing-item">Eggs</div><div class="ing-item">Chopped tomatoes (tin)</div><div class="ing-item">Mixed peppers</div><div class="ing-item">Red onion</div><div class="ing-item">Chorizo (GF-certified)</div><div class="ing-item">Garlic, smoked paprika, cumin</div><div class="ing-item">Olive oil, fresh parsley</div></div>
+      </div>
+      <div class="portion-grid">
+        <div class="portion-card"><div class="portion-name">Dave</div><div class="portion-item">3 eggs baked in the sauce</div><div class="portion-item">60 g chorizo</div><div class="portion-item">¾ tin chopped tomatoes</div><div class="portion-item">½ pepper, ¼ onion</div><div class="portion-item">2 slices GF bread to dip</div><div class="ing-label" style="margin-top:.5rem">~620 kcal · 42g P · 38g C · 30g F</div></div>
+        <div class="portion-card"><div class="portion-name">Mel</div><div class="portion-item">2 eggs baked in the sauce</div><div class="portion-item">40 g chorizo</div><div class="portion-item">¾ tin chopped tomatoes</div><div class="portion-item">½ pepper, ¼ onion</div><div class="portion-item">No bread — extra salad leaves</div><div class="ing-label" style="margin-top:.5rem">~360 kcal · 26g P · 18g C · 22g F</div></div>
+      </div>
+      <div class="section-label" style="margin-top:.75rem">Method</div>
+      <ol class="steps-list">
+        <li>Heat olive oil in an oven-proof frying pan or cast iron skillet. Fry chorizo 2 min until it releases its oil.</li>
+        <li>Add diced onion and pepper. Cook 5–6 min until softened. Add garlic, paprika, cumin — stir 1 min.</li>
+        <li>Pour in chopped tomatoes, season well. Simmer 8–10 min until sauce thickens.</li>
+        <li>Make wells in the sauce and crack in eggs. Transfer pan to 180°C oven (or keep on low hob with lid). Cook until whites are set but yolks still runny — about 8–10 min.</li>
+        <li>Scatter fresh parsley. Dave: serve with GF bread. Mel: serve with side salad.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="section-label">Dinners</div>
+
+  <div class="meal-card" id="meal-d1">
+    <div class="meal-header" onclick="toggleMeal('d1')">
+      <div class="meal-check" id="check-d1" onclick="event.stopPropagation();selectMeal('d1')"><i class="ti ti-check" style="font-size:12px;display:none" id="tick-d1"></i></div>
+      <div class="meal-title-block">
+        <div class="meal-name">Lemon herb chicken thighs with roasted veg & quinoa</div>
+        <div class="meal-tags"><span class="tag batch">Batch-friendly</span><span class="tag gf">GF/DF</span></div>
+      </div>
+      <i class="ti ti-chevron-down expand-icon" id="icon-d1" aria-hidden="true"></i>
+    </div>
+    <div class="meal-body" id="body-d1">
+      <div class="ingredients-grid">
+        <div><div class="ing-label">Base ingredients</div><div class="ing-item">Chicken thighs (bone-in, skin-on optional)</div><div class="ing-item">Courgette</div><div class="ing-item">Red pepper</div><div class="ing-item">Cherry tomatoes</div><div class="ing-item">Red onion</div><div class="ing-item">Quinoa</div><div class="ing-item">Lemon, garlic, olive oil, dried rosemary, thyme</div></div>
+      </div>
+      <div class="portion-grid">
+        <div class="portion-card"><div class="portion-name">Dave</div><div class="portion-item">2 large chicken thighs (250 g)</div><div class="portion-item">90 g quinoa (dry weight)</div><div class="portion-item">Generous roasted veg portion</div><div class="portion-item">1½ tsp olive oil on veg</div><div class="ing-label" style="margin-top:.5rem">~680 kcal · 58g P · 52g C · 22g F</div></div>
+        <div class="portion-card"><div class="portion-name">Mel</div><div class="portion-item">1 large chicken thigh (150 g)</div><div class="portion-item">60 g quinoa (dry weight)</div><div class="portion-item">Generous roasted veg portion</div><div class="portion-item">1 tsp olive oil on veg</div><div class="ing-label" style="margin-top:.5rem">~430 kcal · 38g P · 35g C · 14g F</div></div>
+      </div>
+      <div class="section-label" style="margin-top:.75rem">Method</div>
+      <ol class="steps-list">
+        <li>Preheat oven to 200°C. Marinate chicken thighs in lemon juice, crushed garlic, olive oil, rosemary and thyme for at least 20 min (overnight is better).</li>
+        <li>Place chicken on a roasting tray. Chop courgette, pepper, red onion into chunks. Arrange on a separate baking tray with cherry tomatoes. Drizzle veg with olive oil and season.</li>
+        <li>Roast chicken 35–40 min until skin is golden and juices run clear. Roast veg 25–30 min alongside.</li>
+        <li>Cook quinoa: rinse, then simmer 2:1 water to quinoa for 15 min until liquid is absorbed. Fluff with a fork and season.</li>
+        <li>Serve chicken over quinoa with veg alongside. Squeeze fresh lemon over everything before serving.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="meal-card" id="meal-d2">
+    <div class="meal-header" onclick="toggleMeal('d2')">
+      <div class="meal-check" id="check-d2" onclick="event.stopPropagation();selectMeal('d2')"><i class="ti ti-check" style="font-size:12px;display:none" id="tick-d2"></i></div>
+      <div class="meal-title-block">
+        <div class="meal-name">Turkey & black bean chilli with rice</div>
+        <div class="meal-tags"><span class="tag batch">Batch-friendly</span><span class="tag gf">GF/DF</span></div>
+      </div>
+      <i class="ti ti-chevron-down expand-icon" id="icon-d2" aria-hidden="true"></i>
+    </div>
+    <div class="meal-body" id="body-d2">
+      <div class="ingredients-grid">
+        <div><div class="ing-label">Base ingredients (serves 4)</div><div class="ing-item">500 g turkey mince</div><div class="ing-item">2 tins black beans</div><div class="ing-item">1 tin chopped tomatoes</div><div class="ing-item">1 tin passata (300 ml)</div><div class="ing-item">2 peppers, onion, garlic</div><div class="ing-item">Cumin, smoked paprika, chilli powder, oregano</div><div class="ing-item">Chicken stock (GF), olive oil</div></div>
+      </div>
+      <div class="portion-grid">
+        <div class="portion-card"><div class="portion-name">Dave</div><div class="portion-item">Large bowl chilli (330 g)</div><div class="portion-item">160 g cooked basmati rice</div><div class="portion-item">½ avocado on top</div><div class="portion-item">Fresh coriander</div><div class="ing-label" style="margin-top:.5rem">~720 kcal · 55g P · 78g C · 20g F</div></div>
+        <div class="portion-card"><div class="portion-name">Mel</div><div class="portion-item">Medium bowl chilli (250 g)</div><div class="portion-item">80 g cooked basmati rice</div><div class="portion-item">¼ avocado on top</div><div class="portion-item">Fresh coriander</div><div class="ing-label" style="margin-top:.5rem">~470 kcal · 38g P · 48g C · 14g F</div></div>
+      </div>
+      <div class="section-label" style="margin-top:.75rem">Method</div>
+      <ol class="steps-list">
+        <li>Heat olive oil in a large pot. Brown turkey mince over high heat, breaking up with a spoon, 5–6 min. Season as you go.</li>
+        <li>Add diced onion, peppers and garlic. Cook 5 min until softened. Add all spices and stir 1 min until fragrant.</li>
+        <li>Add chopped tomatoes, passata, stock, and drained black beans. Stir well. Bring to a boil, then reduce heat and simmer 25–30 min, stirring occasionally, until thick and rich.</li>
+        <li>Check seasoning — adjust chilli heat to preference. Cool and portion for batch cooking.</li>
+        <li>Serve with basmati rice, avocado, and coriander. The chilli improves overnight — ideal for batch prep.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="meal-card" id="meal-d3">
+    <div class="meal-header" onclick="toggleMeal('d3')">
+      <div class="meal-check" id="check-d3" onclick="event.stopPropagation();selectMeal('d3')"><i class="ti ti-check" style="font-size:12px;display:none" id="tick-d3"></i></div>
+      <div class="meal-title-block">
+        <div class="meal-name">Pork tenderloin with sweet potato mash & green beans</div>
+        <div class="meal-tags"><span class="tag quick">30 min</span><span class="tag gf">GF/DF</span></div>
+      </div>
+      <i class="ti ti-chevron-down expand-icon" id="icon-d3" aria-hidden="true"></i>
+    </div>
+    <div class="meal-body" id="body-d3">
+      <div class="ingredients-grid">
+        <div><div class="ing-label">Base ingredients</div><div class="ing-item">Pork tenderloin</div><div class="ing-item">Sweet potatoes</div><div class="ing-item">Green beans</div><div class="ing-item">Garlic</div><div class="ing-item">Goat's butter or olive oil</div><div class="ing-item">Rosemary, Dijon mustard, salt, pepper</div><div class="ing-item">Goat's milk (for mash)</div></div>
+      </div>
+      <div class="portion-grid">
+        <div class="portion-card"><div class="portion-name">Dave</div><div class="portion-item">200 g pork tenderloin</div><div class="portion-item">300 g sweet potato</div><div class="portion-item">150 g green beans</div><div class="portion-item">1 tsp olive oil + goat's butter to mash</div><div class="ing-label" style="margin-top:.5rem">~620 kcal · 50g P · 62g C · 16g F</div></div>
+        <div class="portion-card"><div class="portion-name">Mel</div><div class="portion-item">150 g pork tenderloin</div><div class="portion-item">200 g sweet potato</div><div class="portion-item">150 g green beans</div><div class="portion-item">½ tsp olive oil + goat's milk to mash</div><div class="ing-label" style="margin-top:.5rem">~420 kcal · 37g P · 42g C · 12g F</div></div>
+      </div>
+      <div class="section-label" style="margin-top:.75rem">Method</div>
+      <ol class="steps-list">
+        <li>Rub pork tenderloin with Dijon mustard, rosemary, salt, pepper, and a drizzle of olive oil.</li>
+        <li>Heat an oven-proof pan over high heat. Sear pork on all sides 2–3 min total until golden. Transfer to 200°C oven. Roast 15–18 min until internal temp reaches 65–68°C. Rest 5 min before slicing.</li>
+        <li>While pork cooks, boil sweet potato cubes 12–15 min until tender. Drain and mash with a splash of goat's milk and a little goat's butter or olive oil. Season generously.</li>
+        <li>Steam or boil green beans 4–5 min until tender-crisp. Toss with a little olive oil and salt.</li>
+        <li>Slice pork and serve over mash with beans alongside. A squeeze of lemon over the pork brightens the dish.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="meal-card" id="meal-d4">
+    <div class="meal-header" onclick="toggleMeal('d4')">
+      <div class="meal-check" id="check-d4" onclick="event.stopPropagation();selectMeal('d4')"><i class="ti ti-check" style="font-size:12px;display:none" id="tick-d4"></i></div>
+      <div class="meal-title-block">
+        <div class="meal-name">Chicken & vegetable Thai green curry</div>
+        <div class="meal-tags"><span class="tag batch">Batch-friendly</span><span class="tag gf">GF/DF</span></div>
+      </div>
+      <i class="ti ti-chevron-down expand-icon" id="icon-d4" aria-hidden="true"></i>
+    </div>
+    <div class="meal-body" id="body-d4">
+      <div class="ingredients-grid">
+        <div><div class="ing-label">Base ingredients (serves 4)</div><div class="ing-item">600 g chicken breast, diced</div><div class="ing-item">2 tins coconut milk (full fat)</div><div class="ing-item">Thai green curry paste (check GF)</div><div class="ing-item">Courgette, mangetout, baby corn</div><div class="ing-item">Onion, garlic, ginger</div><div class="ing-item">Fish sauce (GF), lime, coconut oil</div><div class="ing-item">Fresh coriander, Thai basil</div></div>
+      </div>
+      <div class="portion-grid">
+        <div class="portion-card"><div class="portion-name">Dave</div><div class="portion-item">200 g chicken in curry</div><div class="portion-item">160 g cooked jasmine rice</div><div class="portion-item">Generous veg portion</div><div class="ing-label" style="margin-top:.5rem">~680 kcal · 52g P · 60g C · 24g F</div></div>
+        <div class="portion-card"><div class="portion-name">Mel</div><div class="portion-item">150 g chicken in curry</div><div class="portion-item">80 g cooked jasmine rice</div><div class="portion-item">Extra veg to bulk out</div><div class="ing-label" style="margin-top:.5rem">~450 kcal · 40g P · 33g C · 18g F</div></div>
+      </div>
+      <div class="section-label" style="margin-top:.75rem">Method</div>
+      <ol class="steps-list">
+        <li>Heat coconut oil in a large wok or deep pan. Fry curry paste 1–2 min until fragrant. Add garlic and ginger.</li>
+        <li>Add diced chicken and stir-fry 4–5 min. Pour in coconut milk and bring to a gentle simmer.</li>
+        <li>Add harder veg (baby corn, courgette) and simmer 8 min. Add mangetout for final 2 min.</li>
+        <li>Season with fish sauce and lime juice to balance. Simmer until chicken is fully cooked through.</li>
+        <li>Serve over rice with fresh coriander and Thai basil. A wedge of lime on the side. Portion and store in airtight containers for up to 3 days — flavour deepens next day.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="section-label">Snacks</div>
+
+  <div class="meal-card" id="meal-s1">
+    <div class="meal-header" onclick="toggleMeal('s1')">
+      <div class="meal-check" id="check-s1" onclick="event.stopPropagation();selectMeal('s1')"><i class="ti ti-check" style="font-size:12px;display:none" id="tick-s1"></i></div>
+      <div class="meal-title-block">
+        <div class="meal-name">Hard-boiled eggs with goat's cheese & rice cakes</div>
+        <div class="meal-tags"><span class="tag quick">10 min</span><span class="tag egg">Egg-heavy</span><span class="tag gf">GF/DF</span></div>
+      </div>
+      <i class="ti ti-chevron-down expand-icon" id="icon-s1" aria-hidden="true"></i>
+    </div>
+    <div class="meal-body" id="body-s1">
+      <div class="portion-grid">
+        <div class="portion-card"><div class="portion-name">Dave</div><div class="portion-item">2 hard-boiled eggs</div><div class="portion-item">25 g hard goat's cheese</div><div class="portion-item">3 rice cakes</div><div class="portion-item">1 apple or pear</div><div class="ing-label" style="margin-top:.5rem">~320 kcal · 22g P · 28g C · 14g F</div></div>
+        <div class="portion-card"><div class="portion-name">Mel</div><div class="portion-item">2 hard-boiled eggs</div><div class="portion-item">20 g hard goat's cheese</div><div class="portion-item">2 rice cakes</div><div class="portion-item">½ apple or cucumber sticks</div><div class="ing-label" style="margin-top:.5rem">~220 kcal · 18g P · 14g C · 11g F</div></div>
+      </div>
+      <div class="section-label" style="margin-top:.75rem">Method</div>
+      <ol class="steps-list"><li>Boil eggs 8–9 min. Cool, peel. Slice goat's cheese. Serve with rice cakes and fruit or veg. Zero effort, high protein.</li></ol>
+    </div>
+  </div>
+
+  <div class="meal-card" id="meal-s2">
+    <div class="meal-header" onclick="toggleMeal('s2')">
+      <div class="meal-check" id="check-s2" onclick="event.stopPropagation();selectMeal('s2')"><i class="ti ti-check" style="font-size:12px;display:none" id="tick-s2"></i></div>
+      <div class="meal-title-block">
+        <div class="meal-name">Banana & peanut butter protein smoothie</div>
+        <div class="meal-tags"><span class="tag quick">5 min</span><span class="tag gf">GF/DF</span></div>
+      </div>
+      <i class="ti ti-chevron-down expand-icon" id="icon-s2" aria-hidden="true"></i>
+    </div>
+    <div class="meal-body" id="body-s2">
+      <div class="portion-grid">
+        <div class="portion-card"><div class="portion-name">Dave</div><div class="portion-item">1 large banana</div><div class="portion-item">2 tbsp peanut butter</div><div class="portion-item">30 g vanilla pea/rice protein</div><div class="portion-item">250 ml goat's milk or almond milk</div><div class="portion-item">Handful ice</div><div class="ing-label" style="margin-top:.5rem">~480 kcal · 36g P · 46g C · 18g F</div></div>
+        <div class="portion-card"><div class="portion-name">Mel</div><div class="portion-item">½ banana</div><div class="portion-item">1 tbsp peanut butter</div><div class="portion-item">25 g vanilla pea/rice protein</div><div class="portion-item">200 ml goat's milk or almond milk</div><div class="portion-item">Handful ice</div><div class="ing-label" style="margin-top:.5rem">~290 kcal · 27g P · 24g C · 10g F</div></div>
+      </div>
+      <div class="section-label" style="margin-top:.75rem">Method</div>
+      <ol class="steps-list"><li>Add all ingredients to a blender. Blitz until smooth. Best consumed within 20 minutes. Ideal post-workout when you need protein quickly and don't want to cook.</li></ol>
+    </div>
+  </div>
+
+  <div class="meal-card" id="meal-s3">
+    <div class="meal-header" onclick="toggleMeal('s3')">
+      <div class="meal-check" id="check-s3" onclick="event.stopPropagation();selectMeal('s3')"><i class="ti ti-check" style="font-size:12px;display:none" id="tick-s3"></i></div>
+      <div class="meal-title-block">
+        <div class="meal-name">Turkey & avocado lettuce wraps</div>
+        <div class="meal-tags"><span class="tag quick">10 min</span><span class="tag gf">GF/DF</span></div>
+      </div>
+      <i class="ti ti-chevron-down expand-icon" id="icon-s3" aria-hidden="true"></i>
+    </div>
+    <div class="meal-body" id="body-s3">
+      <div class="portion-grid">
+        <div class="portion-card"><div class="portion-name">Dave</div><div class="portion-item">100 g sliced turkey breast</div><div class="portion-item">½ avocado, mashed</div><div class="portion-item">4 large cos/iceberg lettuce leaves</div><div class="portion-item">Squeeze lemon, salt, pepper</div><div class="ing-label" style="margin-top:.5rem">~270 kcal · 30g P · 8g C · 13g F</div></div>
+        <div class="portion-card"><div class="portion-name">Mel</div><div class="portion-item">80 g sliced turkey breast</div><div class="portion-item">¼ avocado, mashed</div><div class="portion-item">4 large cos/iceberg lettuce leaves</div><div class="portion-item">Squeeze lemon, salt, pepper</div><div class="ing-label" style="margin-top:.5rem">~190 kcal · 23g P · 5g C · 9g F</div></div>
+      </div>
+      <div class="section-label" style="margin-top:.75rem">Method</div>
+      <ol class="steps-list"><li>Mash avocado with lemon juice, salt and pepper. Spread inside lettuce leaves. Fill with turkey slices. Roll and eat immediately. Excellent afternoon snack or light pre-workout fuel.</li></ol>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 3: BATCH COOKING -->
+<div id="panel-batch" class="panel">
+  <p style="font-size:13px;color:var(--color-text-secondary);margin-bottom:1.25rem">These meals are designed for a Sunday batch-cook session. One 2–3 hour session powers 4+ days of effortless eating.</p>
+
+  <div class="batch-card">
+    <div class="batch-title"><span class="tag batch">Batch</span> Turkey & black bean chilli</div>
+    <div class="person-subtitle">Scales perfectly — improves with time</div>
+    <div class="batch-multiply">
+      <strong style="font-size:13px;font-weight:500">To make 4 days' worth (8 portions — 4 each):</strong>
+      <div style="font-size:13px;margin-top:.5rem;color:var(--color-text-primary)">1 kg turkey mince · 4 tins black beans · 2 tins chopped tomatoes · 600 ml passata · 4 peppers · 2 onions · 8 garlic cloves · Double all spices · 400 ml GF chicken stock</div>
+    </div>
+    <div class="batch-body">Cook in the largest pot you own. Use the single-batch method but double all quantities. The chilli takes the same amount of active time regardless of scale — just needs an extra 10 min simmering. Cool completely before portioning into 8 airtight containers (or 4 large ones for 2-person servings). Cook rice separately each day for best texture — it only takes 12 min.</div>
+    <div class="batch-tip"><i class="ti ti-snowflake" aria-hidden="true"></i> Freezes perfectly up to 3 months. Freeze in individual portions. Defrost overnight in fridge. Fridge-life: 4 days.</div>
+  </div>
+
+  <div class="batch-card">
+    <div class="batch-title"><span class="tag batch">Batch</span> Frittata cups</div>
+    <div class="person-subtitle">The ultimate grab-and-go breakfast</div>
+    <div class="batch-multiply">
+      <strong style="font-size:13px;font-weight:500">To make 4 days' worth (24 cups total):</strong>
+      <div style="font-size:13px;margin-top:.5rem;color:var(--color-text-primary)">24 large eggs · 300 g spinach · 2 red peppers · 200 g turkey mince · 1 red onion · 60 g goat's cheese (for Mel's 12 cups) · 2 muffin tins or bake in 2 batches</div>
+    </div>
+    <div class="batch-body">Use 2 muffin tins simultaneously in the oven for efficiency. Clearly label Mel's cups (the ones with goat's cheese) with a toothpick or colour-coded foil. Bake both trays at 180°C for 17–18 min. Allow to cool fully on a rack before stacking in containers — moisture is the enemy.</div>
+    <div class="batch-tip"><i class="ti ti-snowflake" aria-hidden="true"></i> Fridge: 4 days in airtight containers. Freeze: up to 1 month. Reheat from frozen: 2 min in microwave or 8 min in oven at 170°C. Do not reheat more than once.</div>
+  </div>
+
+  <div class="batch-card">
+    <div class="batch-title"><span class="tag batch">Batch</span> Lemon herb chicken thighs</div>
+    <div class="person-subtitle">Roast once, eat for 3–4 days</div>
+    <div class="batch-multiply">
+      <strong style="font-size:13px;font-weight:500">To make 4 days' worth (8 thighs):</strong>
+      <div style="font-size:13px;margin-top:.5rem;color:var(--color-text-primary)">8–10 chicken thighs · 3 courgettes · 4 peppers · 400 g cherry tomatoes · 2 red onions · 3 lemons · 8 garlic cloves · Generous olive oil · Quinoa cooked per-day</div>
+    </div>
+    <div class="batch-body">Marinate overnight (Sunday morning, cook Sunday evening). Use two large roasting trays. Vegetables can be batch-roasted too but store separately from the chicken so they don't go soggy. Keep chicken portions (Dave: 2 thighs, Mel: 1 thigh) in separate containers. Reheat chicken in oven 10 min at 180°C or briefly in microwave. Quinoa is fast enough (15 min) to cook daily.</div>
+    <div class="batch-tip"><i class="ti ti-fridge" aria-hidden="true" style="font-size:16px;vertical-align:-2px;margin-right:4px"></i> Fridge: 3–4 days. Freeze: 2 months (freeze without quinoa). Roasted veg fridge: 3 days max — batch only if you'll use within that window.</div>
+  </div>
+
+  <div class="batch-card">
+    <div class="batch-title"><span class="tag batch">Batch</span> Thai green curry</div>
+    <div class="person-subtitle">Freeze half, eat the rest fresh</div>
+    <div class="batch-multiply">
+      <strong style="font-size:13px;font-weight:500">To make 4 days' worth (8 portions):</strong>
+      <div style="font-size:13px;margin-top:.5rem;color:var(--color-text-primary)">1.2 kg chicken breast · 4 tins coconut milk · 4–5 tbsp GF Thai green curry paste · 2 courgettes · 200 g mangetout · 200 g baby corn · 2 onions · Double garlic and ginger</div>
+    </div>
+    <div class="batch-body">Cook in a large stockpot or casserole dish. Make 2 separate pots if your largest pan can't hold double batch comfortably — curry quality drops if it's too crowded. Store rice separately. The curry reheats beautifully in a saucepan with a splash of water/coconut milk if it thickens in the fridge.</div>
+    <div class="batch-tip"><i class="ti ti-snowflake" aria-hidden="true"></i> Fridge: 3 days. Freezes extremely well — up to 3 months. Freeze in meal-sized zip-lock bags laid flat. Reheat from frozen on hob over low heat, stirring, adding a splash of coconut milk.</div>
+  </div>
+
+  <div class="batch-card">
+    <div class="batch-title"><i class="ti ti-clock" aria-hidden="true" style="font-size:16px;vertical-align:-2px;margin-right:6px"></i> Recommended Sunday prep sequence</div>
+    <div class="batch-body">
+      <div style="display:grid;grid-template-columns:60px 1fr;gap:6px 12px;font-size:13px;margin-top:.5rem">
+        <span style="font-weight:500;color:#1D9E75">10:00</span><span>Start marinating chicken thighs</span>
+        <span style="font-weight:500;color:#1D9E75">13:00</span><span>Preheat oven. Prep frittata filling (sauté veg + turkey). Crack eggs.</span>
+        <span style="font-weight:500;color:#1D9E75">13:20</span><span>Both muffin tins in oven (18 min). Meanwhile start chilli.</span>
+        <span style="font-weight:500;color:#1D9E75">13:45</span><span>Frittatas out, cooling. Chicken in oven. Chilli simmering.</span>
+        <span style="font-weight:500;color:#1D9E75">14:15</span><span>Chicken out. Boil eggs for snacks. Chilli finishes.</span>
+        <span style="font-weight:500;color:#1D9E75">14:45</span><span>Cool everything. Label and portion into containers.</span>
+        <span style="font-weight:500;color:#1D9E75">15:15</span><span>Fridge and freezer stocked. Weekend done.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 4: SHOPPING LIST -->
+<div id="panel-shopping" class="panel">
+  <div id="shop-prompt" style="text-align:center;padding:2rem 1rem;color:var(--color-text-secondary)">
+    <i class="ti ti-checkbox" style="font-size:32px;display:block;margin-bottom:.75rem;color:var(--color-text-tertiary)" aria-hidden="true"></i>
+    <div style="font-size:15px;font-weight:500;color:var(--color-text-primary);margin-bottom:.5rem">No meals selected yet</div>
+    <div style="font-size:13px">Go to the <strong>Recipe directory</strong> tab and tick the meals you want to cook this week. Your shopping list will appear here automatically.</div>
+  </div>
+  <div id="shop-content" style="display:none">
+    <div class="selected-meals">
+      <strong>Meals selected this week:</strong>
+      <div id="sel-pills"></div>
+    </div>
+    <div id="shop-list"></div>
+    <p style="font-size:12px;color:var(--color-text-tertiary);margin-top:1rem">Quantities are approximate and account for the combined portions for both Dave and Mel for one week based on selections. Adjust for the number of times you plan to cook each meal.</p>
+  </div>
+</div>
+
+<script>
+const meals = {
+  b1: {
+    name: 'Scrambled eggs, turkey bacon & avocado',
+    items: {
+      'Eggs & dairy': {'Large eggs': '18', 'Goat\'s cheese (hard)': '150g'},
+      'Meat & protein': {'Turkey bacon rashers': '20 rashers', 'GF pea/rice protein powder': 'check stock'},
+      'Fruit & veg': {'Avocado': '3', 'Cherry tomatoes': '300g', 'Fresh chives': '1 bunch'},
+      'Carbs & grains': {'GF sourdough bread': '1 loaf'},
+      'Fridge & pantry': {'Olive oil': 'check stock'}
+    }
+  },
+  b2: {
+    name: 'Baked egg frittata cups',
+    items: {
+      'Eggs & dairy': {'Large eggs': '24', 'Goat\'s cheese (hard)': '90g'},
+      'Meat & protein': {'Turkey mince': '200g'},
+      'Fruit & veg': {'Spinach (bag)': '300g', 'Red peppers': '2', 'Red onion': '1'},
+      'Fridge & pantry': {'Olive oil spray': '1 can', 'Smoked paprika': 'check', 'Dried oregano': 'check'}
+    }
+  },
+  b3: {
+    name: 'Poached eggs on sweet potato hash',
+    items: {
+      'Eggs & dairy': {'Large eggs': '10'},
+      'Fruit & veg': {'Sweet potatoes': '1.5 kg', 'Spinach (bag)': '150g', 'Red onion': '2'},
+      'Fridge & pantry': {'Olive oil': 'check', 'Smoked paprika': 'check', 'Garlic powder': 'check'}
+    }
+  },
+  l1: {
+    name: 'Chicken & egg salad bowl',
+    items: {
+      'Eggs & dairy': {'Large eggs': '12', 'Goat\'s cheese (hard)': '80g'},
+      'Meat & protein': {'Chicken breast': '800g'},
+      'Fruit & veg': {'Mixed salad leaves': '2 bags', 'Cucumber': '1', 'Cherry tomatoes': '250g', 'Fresh parsley or dill': '1 bunch', 'Lemon': '2'},
+      'Carbs & grains': {'Rice cakes': '1 pack'},
+      'Fridge & pantry': {'Olive oil': 'check', 'Dijon mustard (GF)': '1 jar'}
+    }
+  },
+  l2: {
+    name: 'Turkey & egg fried rice',
+    items: {
+      'Eggs & dairy': {'Large eggs': '8'},
+      'Meat & protein': {'Turkey mince or diced turkey': '600g'},
+      'Fruit & veg': {'Cauliflower rice (frozen)': '400g', 'Frozen peas': '200g', 'Frozen sweetcorn': '200g', 'Spring onions': '1 bunch', 'Garlic': '1 bulb', 'Fresh ginger': '1 piece'},
+      'Carbs & grains': {'Basmati rice': '500g bag'},
+      'Fridge & pantry': {'Tamari (GF soy sauce)': '1 bottle', 'Sesame oil': '1 bottle'}
+    }
+  },
+  l3: {
+    name: 'Spanish baked eggs (piperade)',
+    items: {
+      'Eggs & dairy': {'Large eggs': '10'},
+      'Meat & protein': {'Chorizo (GF-certified)': '200g'},
+      'Fruit & veg': {'Mixed peppers': '4', 'Red onion': '2', 'Garlic': '1 bulb', 'Fresh parsley': '1 bunch'},
+      'Tins & jars': {'Chopped tomatoes (tin)': '3 tins'},
+      'Carbs & grains': {'GF bread': '1 loaf'},
+      'Fridge & pantry': {'Smoked paprika': 'check', 'Ground cumin': 'check', 'Olive oil': 'check'}
+    }
+  },
+  d1: {
+    name: 'Lemon herb chicken thighs & quinoa',
+    items: {
+      'Meat & protein': {'Chicken thighs': '8 large'},
+      'Fruit & veg': {'Courgette': '3', 'Red pepper': '3', 'Cherry tomatoes': '300g', 'Red onion': '2', 'Lemon': '4', 'Garlic': '2 bulbs'},
+      'Carbs & grains': {'Quinoa': '700g bag'},
+      'Fridge & pantry': {'Olive oil': 'check', 'Dried rosemary': 'check', 'Dried thyme': 'check'}
+    }
+  },
+  d2: {
+    name: 'Turkey & black bean chilli',
+    items: {
+      'Meat & protein': {'Turkey mince': '500g'},
+      'Fruit & veg': {'Mixed peppers': '2', 'Onion': '1', 'Garlic': '1 bulb', 'Avocado': '4', 'Fresh coriander': '1 bunch'},
+      'Tins & jars': {'Black beans (tin)': '2 tins', 'Chopped tomatoes (tin)': '1 tin'},
+      'Carbs & grains': {'Basmati rice': 'check stock', 'Passata (carton)': '1 x 500ml'},
+      'Fridge & pantry': {'GF chicken stock': '2 cubes/pods', 'Ground cumin': 'check', 'Smoked paprika': 'check', 'Chilli powder': 'check', 'Dried oregano': 'check', 'Olive oil': 'check'}
+    }
+  },
+  d3: {
+    name: 'Pork tenderloin & sweet potato mash',
+    items: {
+      'Eggs & dairy': {'Goat\'s milk': '300ml', 'Goat\'s butter': '50g'},
+      'Meat & protein': {'Pork tenderloin': '700g'},
+      'Fruit & veg': {'Sweet potatoes': '1 kg', 'Green beans': '400g', 'Garlic': '1 bulb', 'Lemon': '2'},
+      'Fridge & pantry': {'Olive oil': 'check', 'Dijon mustard (GF)': 'check', 'Dried rosemary': 'check'}
+    }
+  },
+  d4: {
+    name: 'Chicken Thai green curry',
+    items: {
+      'Meat & protein': {'Chicken breast': '600g'},
+      'Fruit & veg': {'Courgette': '2', 'Mangetout': '200g', 'Baby corn': '200g', 'Onion': '1', 'Garlic': '1 bulb', 'Fresh ginger': '1 piece', 'Fresh coriander': '1 bunch', 'Lime': '3'},
+      'Tins & jars': {'Coconut milk (full fat, tin)': '2 tins', 'Thai green curry paste (GF)': '1 jar', 'Fish sauce (GF)': '1 bottle'},
+      'Carbs & grains': {'Jasmine rice': '500g bag'},
+      'Fridge & pantry': {'Coconut oil': '1 jar'}
+    }
+  },
+  s1: {
+    name: 'Hard-boiled eggs & goat\'s cheese',
+    items: {
+      'Eggs & dairy': {'Large eggs': '14', 'Goat\'s cheese (hard)': '180g'},
+      'Carbs & grains': {'Rice cakes': '1 pack'},
+      'Fruit & veg': {'Apples or pears': '4', 'Cucumber': '1'}
+    }
+  },
+  s2: {
+    name: 'Banana & peanut butter smoothie',
+    items: {
+      'Eggs & dairy': {'Goat\'s milk or almond milk': '2 litres'},
+      'Fruit & veg': {'Bananas': '6'},
+      'Fridge & pantry': {'Peanut butter (natural, GF)': '1 jar'},
+      'Meat & protein': {'GF pea/rice protein powder': '1 kg bag'}
+    }
+  },
+  s3: {
+    name: 'Turkey & avocado lettuce wraps',
+    items: {
+      'Meat & protein': {'Sliced turkey breast': '500g'},
+      'Fruit & veg': {'Avocado': '3', 'Cos or iceberg lettuce': '1 large', 'Lemon': '2'}
+    }
+  }
+};
+
+const selectedMeals = new Set();
+
+function selectMeal(id) {
+  const check = document.getElementById('check-' + id);
+  const tick = document.getElementById('tick-' + id);
+  if (selectedMeals.has(id)) {
+    selectedMeals.delete(id);
+    check.classList.remove('checked');
+    tick.style.display = 'none';
+  } else {
+    selectedMeals.add(id);
+    check.classList.add('checked');
+    tick.style.display = '';
+  }
+  updateShoppingList();
+}
+
+function updateShoppingList() {
+  const prompt = document.getElementById('shop-prompt');
+  const content = document.getElementById('shop-content');
+  const pills = document.getElementById('sel-pills');
+  const list = document.getElementById('shop-list');
+
+  if (selectedMeals.size === 0) {
+    prompt.style.display = '';
+    content.style.display = 'none';
+    return;
+  }
+  prompt.style.display = 'none';
+  content.style.display = 'block';
+
+  pills.innerHTML = [...selectedMeals].map(id => `<span class="sel-pill">${meals[id].name}</span>`).join('');
+
+  const combined = {};
+  selectedMeals.forEach(id => {
+    const cats = meals[id].items;
+    Object.keys(cats).forEach(cat => {
+      if (!combined[cat]) combined[cat] = {};
+      Object.keys(cats[cat]).forEach(item => {
+        if (!combined[cat][item]) combined[cat][item] = new Set();
+        combined[cat][item].add(cats[cat][item]);
+      });
+    });
+  });
+
+  const catOrder = ['Eggs & dairy','Meat & protein','Fruit & veg','Carbs & grains','Tins & jars','Fridge & pantry'];
+  let html = '';
+  catOrder.forEach(cat => {
+    if (!combined[cat]) return;
+    html += `<div class="shop-cat"><div class="shop-cat-title">${cat}</div>`;
+    Object.keys(combined[cat]).forEach(item => {
+      const qtys = [...combined[cat][item]];
+      html += `<div class="shop-item"><span>${item}</span><span class="shop-qty">${qtys.join(' / ')}</span></div>`;
+    });
+    html += '</div>';
+  });
+  list.innerHTML = html;
+}
+
+function toggleMeal(id) {
+  const body = document.getElementById('body-' + id);
+  const icon = document.getElementById('icon-' + id);
+  body.classList.toggle('open');
+  icon.classList.toggle('open');
+}
+
+function showPanel(id, btn) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
