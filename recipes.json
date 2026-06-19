@@ -1,277 +1,1077 @@
 [
   {
     "id": 1,
-    "name": "Overnight Oats",
+    "name": "Veggie & Goat Cheese Scramble",
     "category": "breakfast",
     "method": [
-      "Combine the oats, milk and vanilla in a jar or bowl and stir well.",
-      "Swirl in the honey, then fold through the yogurt until evenly combined.",
-      "Cover and refrigerate for at least 6 hours, or overnight.",
-      "Top with the blueberries just before serving."
+      "Heat the olive oil in a non-stick pan over medium heat.",
+      "Add the mushrooms and bell pepper and saute for 3-4 minutes until softened.",
+      "Add the spinach and cook until just wilted.",
+      "Whisk the eggs and pour into the pan, stirring gently as they set.",
+      "Once just set, crumble over the hard goat cheese and remove from the heat."
     ],
     "dave": [
-      { "name": "Oats", "quantity": "80g" },
-      { "name": "Yogurt", "quantity": "150g" },
-      { "name": "Milk", "quantity": "120ml" },
-      { "name": "Honey", "quantity": "1 tbsp" },
-      { "name": "Blueberries", "quantity": "100g" },
-      { "name": "Vanilla", "quantity": "0.5 tsp" }
+      { "name": "Eggs", "quantity": "4" },
+      { "name": "Spinach", "quantity": "100g" },
+      { "name": "Mushrooms", "quantity": "80g" },
+      { "name": "Bell pepper", "quantity": "50g" },
+      { "name": "Hard goat cheese", "quantity": "30g" },
+      { "name": "Olive oil", "quantity": "1 tsp" }
     ],
     "mel": [
-      { "name": "Oats", "quantity": "60g" },
-      { "name": "Yogurt", "quantity": "120g" },
-      { "name": "Milk", "quantity": "100ml" },
-      { "name": "Honey", "quantity": "0.75 tbsp" },
-      { "name": "Blueberries", "quantity": "80g" },
-      { "name": "Vanilla", "quantity": "0.5 tsp" }
+      { "name": "Eggs", "quantity": "3" },
+      { "name": "Spinach", "quantity": "80g" },
+      { "name": "Mushrooms", "quantity": "60g" },
+      { "name": "Bell pepper", "quantity": "40g" },
+      { "name": "Hard goat cheese", "quantity": "20g" },
+      { "name": "Olive oil", "quantity": "0.75 tsp" }
     ]
   },
   {
     "id": 2,
-    "name": "Egg White Omelet",
+    "name": "Buckwheat Blueberry Pancakes",
     "category": "breakfast",
     "method": [
-      "Whisk the egg whites in a bowl until slightly frothy.",
-      "Melt the butter in a non-stick pan over medium heat.",
-      "Add the mushrooms and bell pepper and saute for 3-4 minutes until softened.",
-      "Add the spinach and cook until just wilted.",
-      "Pour in the egg whites, tilting the pan to spread evenly, and cook for 2-3 minutes.",
-      "Fold the omelet in half once set and slide onto a plate."
+      "Whisk the buckwheat flour and baking powder together in a bowl.",
+      "In a separate bowl, beat the eggs with the goat milk and honey.",
+      "Combine the wet and dry ingredients and stir until just smooth.",
+      "Heat a non-stick pan over medium heat and pour in small rounds of batter.",
+      "Cook for 1-2 minutes per side until golden, then top with blueberries."
     ],
     "dave": [
-      { "name": "Egg whites", "quantity": "8" },
-      { "name": "Spinach", "quantity": "100g" },
-      { "name": "Mushrooms", "quantity": "80g" },
-      { "name": "Bell pepper", "quantity": "50g" },
-      { "name": "Butter", "quantity": "1 tsp" }
+      { "name": "Buckwheat flour", "quantity": "70g" },
+      { "name": "Baking powder", "quantity": "1 tsp" },
+      { "name": "Eggs", "quantity": "2" },
+      { "name": "Goat milk", "quantity": "100ml" },
+      { "name": "Honey", "quantity": "1 tbsp" },
+      { "name": "Blueberries", "quantity": "100g" }
     ],
     "mel": [
-      { "name": "Egg whites", "quantity": "6" },
-      { "name": "Spinach", "quantity": "80g" },
-      { "name": "Mushrooms", "quantity": "60g" },
-      { "name": "Bell pepper", "quantity": "40g" },
-      { "name": "Butter", "quantity": "0.75 tsp" }
+      { "name": "Buckwheat flour", "quantity": "50g" },
+      { "name": "Baking powder", "quantity": "0.75 tsp" },
+      { "name": "Eggs", "quantity": "1" },
+      { "name": "Goat milk", "quantity": "80ml" },
+      { "name": "Honey", "quantity": "0.75 tbsp" },
+      { "name": "Blueberries", "quantity": "80g" }
     ]
   },
   {
     "id": 3,
-    "name": "Grilled Chicken Salad",
-    "category": "lunch",
+    "name": "Sweet Potato & Egg Hash",
+    "category": "breakfast",
     "method": [
-      "Season the chicken and grill or pan-sear for 6-7 minutes per side until cooked through.",
-      "Rest the chicken for 5 minutes, then slice.",
-      "Toss the greens, cherry tomatoes and cucumber together in a large bowl.",
-      "Drizzle with olive oil and toss again.",
-      "Top the salad with the sliced chicken."
+      "Dice the sweet potato into small cubes.",
+      "Heat the olive oil in a pan and cook the sweet potato for 8-10 minutes, stirring occasionally, until tender.",
+      "Add the red onion and bell pepper and cook for a further 3-4 minutes.",
+      "Season with paprika.",
+      "Make small wells in the hash and crack in the eggs, cooking until set to your liking."
     ],
     "dave": [
-      { "name": "Chicken", "quantity": "250g" },
-      { "name": "Greens", "quantity": "150g" },
-      { "name": "Cherry tomatoes", "quantity": "100g" },
-      { "name": "Cucumber", "quantity": "80g" },
-      { "name": "Olive oil", "quantity": "2 tbsp" }
+      { "name": "Sweet potato", "quantity": "200g" },
+      { "name": "Eggs", "quantity": "3" },
+      { "name": "Red onion", "quantity": "40g" },
+      { "name": "Bell pepper", "quantity": "60g" },
+      { "name": "Paprika", "quantity": "0.5 tsp" },
+      { "name": "Olive oil", "quantity": "1 tbsp" }
     ],
     "mel": [
-      { "name": "Chicken", "quantity": "200g" },
-      { "name": "Greens", "quantity": "120g" },
-      { "name": "Cherry tomatoes", "quantity": "80g" },
-      { "name": "Cucumber", "quantity": "60g" },
-      { "name": "Olive oil", "quantity": "1.5 tbsp" }
+      { "name": "Sweet potato", "quantity": "150g" },
+      { "name": "Eggs", "quantity": "2" },
+      { "name": "Red onion", "quantity": "30g" },
+      { "name": "Bell pepper", "quantity": "45g" },
+      { "name": "Paprika", "quantity": "0.5 tsp" },
+      { "name": "Olive oil", "quantity": "0.75 tbsp" }
     ]
   },
   {
     "id": 4,
-    "name": "Greek Salad with Feta",
-    "category": "lunch",
+    "name": "Banana Almond Butter Oat Bowl",
+    "category": "breakfast",
     "method": [
-      "Chop the cucumber, tomato and red onion into bite-sized pieces.",
-      "Combine in a bowl with the olives.",
-      "Crumble the feta over the top.",
-      "Drizzle with olive oil and toss gently to combine."
+      "Cook the oats with the goat milk over medium heat for 4-5 minutes, stirring occasionally, until creamy.",
+      "Spoon into a bowl and swirl through the almond butter.",
+      "Top with sliced banana and chia seeds, then dust with cinnamon."
     ],
     "dave": [
-      { "name": "Cucumber", "quantity": "150g" },
-      { "name": "Tomato", "quantity": "150g" },
-      { "name": "Red onion", "quantity": "50g" },
-      { "name": "Feta", "quantity": "100g" },
-      { "name": "Olives", "quantity": "50g" },
-      { "name": "Olive oil", "quantity": "2 tbsp" }
+      { "name": "Gluten-free oats", "quantity": "70g" },
+      { "name": "Goat milk", "quantity": "150ml" },
+      { "name": "Banana", "quantity": "1" },
+      { "name": "Almond butter", "quantity": "20g" },
+      { "name": "Chia seeds", "quantity": "1 tbsp" },
+      { "name": "Cinnamon", "quantity": "0.5 tsp" }
     ],
     "mel": [
-      { "name": "Cucumber", "quantity": "120g" },
-      { "name": "Tomato", "quantity": "120g" },
-      { "name": "Red onion", "quantity": "40g" },
-      { "name": "Feta", "quantity": "80g" },
-      { "name": "Olives", "quantity": "40g" },
-      { "name": "Olive oil", "quantity": "1.5 tbsp" }
+      { "name": "Gluten-free oats", "quantity": "50g" },
+      { "name": "Goat milk", "quantity": "120ml" },
+      { "name": "Banana", "quantity": "1" },
+      { "name": "Almond butter", "quantity": "15g" },
+      { "name": "Chia seeds", "quantity": "0.75 tbsp" },
+      { "name": "Cinnamon", "quantity": "0.5 tsp" }
     ]
   },
   {
     "id": 5,
-    "name": "Tuna Pasta",
-    "category": "lunch",
+    "name": "Shakshuka",
+    "category": "breakfast",
     "method": [
-      "Cook the pasta according to packet instructions, then drain and cool slightly.",
-      "Finely chop the celery and tomato.",
-      "In a large bowl, combine the yogurt, a squeeze of lemon juice, celery and tomato.",
-      "Fold in the tuna and the cooked pasta until evenly coated."
+      "Heat the olive oil in a pan and cook the onion and bell pepper for 4-5 minutes until softened.",
+      "Add the garlic, cumin and paprika and cook for 1 minute.",
+      "Pour in the tinned tomatoes and simmer for 8-10 minutes until thickened.",
+      "Make small wells in the sauce and crack in the eggs.",
+      "Cover and cook for 5-6 minutes until the eggs are set to your liking."
     ],
     "dave": [
-      { "name": "Pasta", "quantity": "180g" },
-      { "name": "Tuna", "quantity": "150g" },
-      { "name": "Yogurt", "quantity": "100g" },
-      { "name": "Tomato", "quantity": "80g" },
-      { "name": "Celery", "quantity": "50g" },
-      { "name": "Lemon", "quantity": "0.5" }
+      { "name": "Eggs", "quantity": "3" },
+      { "name": "Tinned tomatoes", "quantity": "200g" },
+      { "name": "Bell pepper", "quantity": "60g" },
+      { "name": "Onion", "quantity": "40g" },
+      { "name": "Garlic cloves", "quantity": "1" },
+      { "name": "Cumin", "quantity": "0.5 tsp" },
+      { "name": "Paprika", "quantity": "0.5 tsp" },
+      { "name": "Olive oil", "quantity": "1 tbsp" }
     ],
     "mel": [
-      { "name": "Pasta", "quantity": "140g" },
-      { "name": "Tuna", "quantity": "120g" },
-      { "name": "Yogurt", "quantity": "80g" },
-      { "name": "Tomato", "quantity": "60g" },
-      { "name": "Celery", "quantity": "40g" },
-      { "name": "Lemon", "quantity": "0.5" }
+      { "name": "Eggs", "quantity": "2" },
+      { "name": "Tinned tomatoes", "quantity": "150g" },
+      { "name": "Bell pepper", "quantity": "45g" },
+      { "name": "Onion", "quantity": "30g" },
+      { "name": "Garlic cloves", "quantity": "1" },
+      { "name": "Cumin", "quantity": "0.5 tsp" },
+      { "name": "Paprika", "quantity": "0.5 tsp" },
+      { "name": "Olive oil", "quantity": "0.75 tbsp" }
     ]
   },
   {
     "id": 6,
-    "name": "Quinoa Power Bowl",
-    "category": "lunch",
+    "name": "Smoked Paprika Turkey Hash",
+    "category": "breakfast",
     "method": [
-      "Rinse the quinoa and cook according to packet instructions, then cool slightly.",
-      "Whisk the tahini with the juice of the lemon to make a dressing.",
-      "Chop the cucumber, tomato and bell pepper.",
-      "Combine the quinoa, chickpeas, cucumber, tomato and bell pepper in a bowl.",
-      "Drizzle with the tahini dressing and toss to combine."
+      "Heat the olive oil in a pan and cook the turkey mince for 5-6 minutes, breaking it up, until browned.",
+      "Add the sweet potato and cook for 8-10 minutes, stirring occasionally, until tender.",
+      "Stir in the kale and paprika and cook until wilted.",
+      "Make small wells in the hash and crack in the eggs, cooking until set to your liking."
     ],
     "dave": [
-      { "name": "Quinoa", "quantity": "150g" },
-      { "name": "Chickpeas", "quantity": "120g" },
-      { "name": "Cucumber", "quantity": "100g" },
-      { "name": "Tomato", "quantity": "100g" },
-      { "name": "Bell pepper", "quantity": "80g" },
-      { "name": "Tahini", "quantity": "2 tbsp" },
-      { "name": "Lemon", "quantity": "1" }
+      { "name": "Turkey mince", "quantity": "120g" },
+      { "name": "Sweet potato", "quantity": "150g" },
+      { "name": "Kale", "quantity": "50g" },
+      { "name": "Paprika", "quantity": "0.5 tsp" },
+      { "name": "Eggs", "quantity": "2" },
+      { "name": "Olive oil", "quantity": "1 tbsp" }
     ],
     "mel": [
-      { "name": "Quinoa", "quantity": "120g" },
-      { "name": "Chickpeas", "quantity": "100g" },
-      { "name": "Cucumber", "quantity": "80g" },
-      { "name": "Tomato", "quantity": "80g" },
-      { "name": "Bell pepper", "quantity": "60g" },
-      { "name": "Tahini", "quantity": "1.5 tbsp" },
-      { "name": "Lemon", "quantity": "0.75" }
+      { "name": "Turkey mince", "quantity": "90g" },
+      { "name": "Sweet potato", "quantity": "110g" },
+      { "name": "Kale", "quantity": "40g" },
+      { "name": "Paprika", "quantity": "0.5 tsp" },
+      { "name": "Eggs", "quantity": "1" },
+      { "name": "Olive oil", "quantity": "0.75 tbsp" }
     ]
   },
   {
     "id": 7,
-    "name": "Salmon with Asparagus",
-    "category": "dinner",
+    "name": "Goat Cheese & Tomato Frittata",
+    "category": "breakfast",
     "method": [
-      "Preheat the oven to 200C (400F).",
-      "Mince the garlic and arrange the salmon and asparagus on a lined baking tray.",
-      "Drizzle with olive oil and scatter over the garlic.",
-      "Roast for 12-15 minutes until the salmon is cooked through.",
-      "Finish with a squeeze of lemon before serving."
+      "Preheat the oven to 180C (350F).",
+      "Whisk the eggs in a bowl and season.",
+      "Heat the olive oil in an oven-proof pan and add the spinach and cherry tomatoes, cooking for 2 minutes.",
+      "Pour in the eggs and crumble over the hard goat cheese.",
+      "Transfer to the oven and bake for 12-15 minutes until just set."
     ],
     "dave": [
-      { "name": "Salmon", "quantity": "200g" },
-      { "name": "Asparagus", "quantity": "200g" },
-      { "name": "Lemon", "quantity": "0.5" },
-      { "name": "Olive oil", "quantity": "1 tbsp" },
-      { "name": "Garlic cloves", "quantity": "2" }
+      { "name": "Eggs", "quantity": "4" },
+      { "name": "Cherry tomatoes", "quantity": "80g" },
+      { "name": "Spinach", "quantity": "80g" },
+      { "name": "Hard goat cheese", "quantity": "30g" },
+      { "name": "Olive oil", "quantity": "1 tsp" }
     ],
     "mel": [
-      { "name": "Salmon", "quantity": "150g" },
-      { "name": "Asparagus", "quantity": "150g" },
-      { "name": "Lemon", "quantity": "0.5" },
-      { "name": "Olive oil", "quantity": "0.75 tbsp" },
-      { "name": "Garlic cloves", "quantity": "1" }
+      { "name": "Eggs", "quantity": "3" },
+      { "name": "Cherry tomatoes", "quantity": "60g" },
+      { "name": "Spinach", "quantity": "60g" },
+      { "name": "Hard goat cheese", "quantity": "20g" },
+      { "name": "Olive oil", "quantity": "0.75 tsp" }
     ]
   },
   {
     "id": 8,
-    "name": "Turkey Meatballs with Rice",
-    "category": "dinner",
+    "name": "Coconut Chia Pudding with Berries",
+    "category": "breakfast",
     "method": [
-      "Finely chop the onion and mince the garlic.",
-      "In a bowl, combine the ground turkey, breadcrumbs, egg, onion and garlic. Mix well and shape into meatballs.",
-      "Heat a pan over medium heat and cook the meatballs for 10-12 minutes, turning occasionally, until browned and cooked through.",
-      "Meanwhile, cook the rice according to packet instructions.",
-      "Serve the meatballs over the rice."
+      "Whisk the chia seeds into the coconut milk along with the honey.",
+      "Cover and refrigerate for at least 4 hours, or overnight, stirring once if you remember.",
+      "Top with the mixed berries just before serving."
     ],
     "dave": [
-      { "name": "Ground turkey", "quantity": "250g" },
-      { "name": "Rice", "quantity": "150g" },
-      { "name": "Breadcrumbs", "quantity": "30g" },
-      { "name": "Egg", "quantity": "1" },
-      { "name": "Onion", "quantity": "0.5" },
-      { "name": "Garlic cloves", "quantity": "2" }
+      { "name": "Chia seeds", "quantity": "35g" },
+      { "name": "Coconut milk", "quantity": "200ml" },
+      { "name": "Honey", "quantity": "1 tbsp" },
+      { "name": "Mixed berries", "quantity": "100g" }
     ],
     "mel": [
-      { "name": "Ground turkey", "quantity": "200g" },
-      { "name": "Rice", "quantity": "120g" },
-      { "name": "Breadcrumbs", "quantity": "25g" },
-      { "name": "Egg", "quantity": "0.5" },
-      { "name": "Onion", "quantity": "0.25" },
-      { "name": "Garlic cloves", "quantity": "1" }
+      { "name": "Chia seeds", "quantity": "25g" },
+      { "name": "Coconut milk", "quantity": "150ml" },
+      { "name": "Honey", "quantity": "0.75 tbsp" },
+      { "name": "Mixed berries", "quantity": "80g" }
     ]
   },
   {
     "id": 9,
-    "name": "Beef Stir-Fry",
-    "category": "dinner",
+    "name": "Buckwheat Porridge with Apple & Cinnamon",
+    "category": "breakfast",
     "method": [
-      "Cook the rice according to packet instructions.",
-      "Slice the beef thinly and mince the garlic.",
-      "Heat the sesame oil in a wok or large pan over high heat.",
-      "Stir-fry the beef for 2-3 minutes until browned, then set aside.",
-      "Add the broccoli, bell pepper and snap peas to the pan and stir-fry for 3-4 minutes.",
-      "Return the beef to the pan with the garlic and soy sauce, and toss everything together for 1-2 minutes.",
-      "Serve over the cooked rice."
+      "Combine the buckwheat groats and goat milk in a pan and bring to a simmer.",
+      "Cook for 10-12 minutes, stirring occasionally, until soft and creamy.",
+      "Grate or dice the apple and stir half through the porridge.",
+      "Top with the remaining apple, cinnamon and walnuts."
     ],
     "dave": [
-      { "name": "Beef sirloin", "quantity": "250g" },
-      { "name": "Rice", "quantity": "150g" },
-      { "name": "Broccoli", "quantity": "150g" },
-      { "name": "Bell pepper", "quantity": "100g" },
-      { "name": "Snap peas", "quantity": "80g" },
-      { "name": "Soy sauce", "quantity": "2 tbsp" },
-      { "name": "Garlic cloves", "quantity": "3" },
-      { "name": "Sesame oil", "quantity": "1 tbsp" }
+      { "name": "Buckwheat groats", "quantity": "60g" },
+      { "name": "Goat milk", "quantity": "200ml" },
+      { "name": "Apple", "quantity": "1" },
+      { "name": "Cinnamon", "quantity": "0.5 tsp" },
+      { "name": "Walnuts", "quantity": "15g" }
     ],
     "mel": [
-      { "name": "Beef sirloin", "quantity": "200g" },
-      { "name": "Rice", "quantity": "120g" },
-      { "name": "Broccoli", "quantity": "120g" },
-      { "name": "Bell pepper", "quantity": "80g" },
-      { "name": "Snap peas", "quantity": "60g" },
-      { "name": "Soy sauce", "quantity": "1.5 tbsp" },
-      { "name": "Garlic cloves", "quantity": "2" },
-      { "name": "Sesame oil", "quantity": "0.75 tbsp" }
+      { "name": "Buckwheat groats", "quantity": "45g" },
+      { "name": "Goat milk", "quantity": "150ml" },
+      { "name": "Apple", "quantity": "1" },
+      { "name": "Cinnamon", "quantity": "0.5 tsp" },
+      { "name": "Walnuts", "quantity": "10g" }
     ]
   },
   {
     "id": 10,
-    "name": "Protein Energy Balls",
+    "name": "Mexican-Style Egg Bowl",
+    "category": "breakfast",
+    "method": [
+      "Fry or poach the eggs to your liking.",
+      "Warm the black beans in a small pan.",
+      "Spoon the beans into a bowl and top with the eggs.",
+      "Add the sliced avocado and salsa, then finish with a squeeze of lime and the coriander."
+    ],
+    "dave": [
+      { "name": "Eggs", "quantity": "3" },
+      { "name": "Black beans", "quantity": "100g" },
+      { "name": "Avocado", "quantity": "0.5" },
+      { "name": "Salsa", "quantity": "50g" },
+      { "name": "Lime", "quantity": "0.5" },
+      { "name": "Coriander", "quantity": "1 tbsp" }
+    ],
+    "mel": [
+      { "name": "Eggs", "quantity": "2" },
+      { "name": "Black beans", "quantity": "80g" },
+      { "name": "Avocado", "quantity": "0.5" },
+      { "name": "Salsa", "quantity": "40g" },
+      { "name": "Lime", "quantity": "0.5" },
+      { "name": "Coriander", "quantity": "0.75 tbsp" }
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Chicken & Quinoa Salad Bowl",
+    "category": "lunch",
+    "method": [
+      "Rinse the quinoa and cook according to packet instructions, then cool slightly.",
+      "Season the chicken and grill or pan-sear for 6-7 minutes per side until cooked through, then slice.",
+      "Toss the rocket, cucumber and cherry tomatoes with the cooked quinoa.",
+      "Top with the sliced chicken.",
+      "Dress with olive oil and a squeeze of lemon."
+    ],
+    "dave": [
+      { "name": "Chicken breast", "quantity": "150g" },
+      { "name": "Quinoa", "quantity": "60g" },
+      { "name": "Rocket", "quantity": "60g" },
+      { "name": "Cucumber", "quantity": "60g" },
+      { "name": "Cherry tomatoes", "quantity": "70g" },
+      { "name": "Olive oil", "quantity": "1 tbsp" },
+      { "name": "Lemon", "quantity": "0.25" }
+    ],
+    "mel": [
+      { "name": "Chicken breast", "quantity": "110g" },
+      { "name": "Quinoa", "quantity": "45g" },
+      { "name": "Rocket", "quantity": "50g" },
+      { "name": "Cucumber", "quantity": "50g" },
+      { "name": "Cherry tomatoes", "quantity": "55g" },
+      { "name": "Olive oil", "quantity": "0.75 tbsp" },
+      { "name": "Lemon", "quantity": "0.25" }
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Turkey Lettuce Wraps",
+    "category": "lunch",
+    "method": [
+      "Heat a pan over medium-high heat and cook the turkey mince, breaking it up, for 6-8 minutes until browned.",
+      "Add the grated carrot, spring onion and gluten-free tamari, and cook for a further 2 minutes.",
+      "Spoon the mixture into the lettuce leaves.",
+      "Scatter with sesame seeds before serving."
+    ],
+    "dave": [
+      { "name": "Turkey mince", "quantity": "150g" },
+      { "name": "Lettuce leaves", "quantity": "6" },
+      { "name": "Carrot", "quantity": "60g" },
+      { "name": "Spring onion", "quantity": "20g" },
+      { "name": "Gluten-free tamari", "quantity": "1 tbsp" },
+      { "name": "Sesame seeds", "quantity": "1 tsp" }
+    ],
+    "mel": [
+      { "name": "Turkey mince", "quantity": "110g" },
+      { "name": "Lettuce leaves", "quantity": "5" },
+      { "name": "Carrot", "quantity": "45g" },
+      { "name": "Spring onion", "quantity": "15g" },
+      { "name": "Gluten-free tamari", "quantity": "0.75 tbsp" },
+      { "name": "Sesame seeds", "quantity": "0.75 tsp" }
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Chickpea & Roast Veg Salad",
+    "category": "lunch",
+    "method": [
+      "Preheat the oven to 200C (400F).",
+      "Toss the courgette, red pepper and red onion with olive oil and roast for 20 minutes until tender.",
+      "Toss the roasted vegetables with the chickpeas and rocket.",
+      "Crumble over the hard goat cheese.",
+      "Dress with olive oil and a squeeze of lemon."
+    ],
+    "dave": [
+      { "name": "Chickpeas", "quantity": "120g" },
+      { "name": "Courgette", "quantity": "100g" },
+      { "name": "Red pepper", "quantity": "80g" },
+      { "name": "Red onion", "quantity": "40g" },
+      { "name": "Rocket", "quantity": "50g" },
+      { "name": "Hard goat cheese", "quantity": "30g" },
+      { "name": "Olive oil", "quantity": "1.5 tbsp" },
+      { "name": "Lemon", "quantity": "0.25" }
+    ],
+    "mel": [
+      { "name": "Chickpeas", "quantity": "90g" },
+      { "name": "Courgette", "quantity": "80g" },
+      { "name": "Red pepper", "quantity": "60g" },
+      { "name": "Red onion", "quantity": "30g" },
+      { "name": "Rocket", "quantity": "40g" },
+      { "name": "Hard goat cheese", "quantity": "20g" },
+      { "name": "Olive oil", "quantity": "1 tbsp" },
+      { "name": "Lemon", "quantity": "0.25" }
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Thai-Style Chicken Salad",
+    "category": "lunch",
+    "method": [
+      "Season the chicken and grill or pan-sear for 6-7 minutes per side until cooked through, then slice.",
+      "Toss the cabbage and carrot together in a bowl.",
+      "Whisk the lime juice and gluten-free tamari together for the dressing.",
+      "Top the slaw with the sliced chicken, mint and coriander.",
+      "Drizzle with the dressing and scatter over the peanuts."
+    ],
+    "dave": [
+      { "name": "Chicken breast", "quantity": "130g" },
+      { "name": "Cabbage", "quantity": "100g" },
+      { "name": "Carrot", "quantity": "50g" },
+      { "name": "Mint", "quantity": "1 tbsp" },
+      { "name": "Coriander", "quantity": "1 tbsp" },
+      { "name": "Lime", "quantity": "0.5" },
+      { "name": "Gluten-free tamari", "quantity": "1 tbsp" },
+      { "name": "Peanuts", "quantity": "15g" }
+    ],
+    "mel": [
+      { "name": "Chicken breast", "quantity": "100g" },
+      { "name": "Cabbage", "quantity": "80g" },
+      { "name": "Carrot", "quantity": "40g" },
+      { "name": "Mint", "quantity": "0.75 tbsp" },
+      { "name": "Coriander", "quantity": "0.75 tbsp" },
+      { "name": "Lime", "quantity": "0.5" },
+      { "name": "Gluten-free tamari", "quantity": "0.75 tbsp" },
+      { "name": "Peanuts", "quantity": "10g" }
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Lentil & Roasted Veg Salad",
+    "category": "lunch",
+    "method": [
+      "Preheat the oven to 200C (400F) and roast the butternut squash with a little olive oil for 20-25 minutes until tender.",
+      "Cook the lentils according to packet instructions, then drain.",
+      "Toss the lentils with the roasted squash and kale.",
+      "Scatter with pumpkin seeds and dress with olive oil and lemon."
+    ],
+    "dave": [
+      { "name": "Lentils", "quantity": "100g" },
+      { "name": "Butternut squash", "quantity": "120g" },
+      { "name": "Kale", "quantity": "50g" },
+      { "name": "Pumpkin seeds", "quantity": "15g" },
+      { "name": "Lemon", "quantity": "0.25" },
+      { "name": "Olive oil", "quantity": "1 tbsp" }
+    ],
+    "mel": [
+      { "name": "Lentils", "quantity": "80g" },
+      { "name": "Butternut squash", "quantity": "90g" },
+      { "name": "Kale", "quantity": "40g" },
+      { "name": "Pumpkin seeds", "quantity": "10g" },
+      { "name": "Lemon", "quantity": "0.25" },
+      { "name": "Olive oil", "quantity": "0.75 tbsp" }
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Egg & Avocado Salad",
+    "category": "lunch",
+    "method": [
+      "Boil the eggs for 8-9 minutes, then cool, peel and quarter.",
+      "Toss the rocket, cucumber and cherry tomatoes together in a bowl.",
+      "Top with the eggs and sliced avocado.",
+      "Dress with olive oil and a squeeze of lemon."
+    ],
+    "dave": [
+      { "name": "Eggs", "quantity": "3" },
+      { "name": "Avocado", "quantity": "0.75" },
+      { "name": "Cucumber", "quantity": "60g" },
+      { "name": "Cherry tomatoes", "quantity": "70g" },
+      { "name": "Rocket", "quantity": "50g" },
+      { "name": "Olive oil", "quantity": "1 tbsp" },
+      { "name": "Lemon", "quantity": "0.25" }
+    ],
+    "mel": [
+      { "name": "Eggs", "quantity": "2" },
+      { "name": "Avocado", "quantity": "0.5" },
+      { "name": "Cucumber", "quantity": "50g" },
+      { "name": "Cherry tomatoes", "quantity": "55g" },
+      { "name": "Rocket", "quantity": "40g" },
+      { "name": "Olive oil", "quantity": "0.75 tbsp" },
+      { "name": "Lemon", "quantity": "0.25" }
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Turkey & Black Bean Salad Bowl",
+    "category": "lunch",
+    "method": [
+      "Season the turkey breast and grill or pan-sear for 6-7 minutes per side until cooked through, then slice.",
+      "Warm the black beans and sweetcorn in a small pan.",
+      "Toss the bell pepper through the warm beans and corn.",
+      "Top with the sliced turkey, a squeeze of lime and the coriander."
+    ],
+    "dave": [
+      { "name": "Turkey breast", "quantity": "130g" },
+      { "name": "Black beans", "quantity": "90g" },
+      { "name": "Sweetcorn", "quantity": "50g" },
+      { "name": "Bell pepper", "quantity": "50g" },
+      { "name": "Lime", "quantity": "0.5" },
+      { "name": "Coriander", "quantity": "1 tbsp" }
+    ],
+    "mel": [
+      { "name": "Turkey breast", "quantity": "100g" },
+      { "name": "Black beans", "quantity": "70g" },
+      { "name": "Sweetcorn", "quantity": "40g" },
+      { "name": "Bell pepper", "quantity": "40g" },
+      { "name": "Lime", "quantity": "0.5" },
+      { "name": "Coriander", "quantity": "0.75 tbsp" }
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Moroccan Spiced Chicken Salad",
+    "category": "lunch",
+    "method": [
+      "Rub the chicken thigh with harissa and grill or pan-sear for 6-7 minutes per side until cooked through, then slice.",
+      "Toss the chickpeas and carrots with the rocket.",
+      "Top with the sliced chicken.",
+      "Drizzle with olive oil."
+    ],
+    "dave": [
+      { "name": "Chicken thigh", "quantity": "150g" },
+      { "name": "Chickpeas", "quantity": "80g" },
+      { "name": "Carrots", "quantity": "70g" },
+      { "name": "Harissa", "quantity": "1 tbsp" },
+      { "name": "Rocket", "quantity": "50g" },
+      { "name": "Olive oil", "quantity": "1 tbsp" }
+    ],
+    "mel": [
+      { "name": "Chicken thigh", "quantity": "110g" },
+      { "name": "Chickpeas", "quantity": "60g" },
+      { "name": "Carrots", "quantity": "55g" },
+      { "name": "Harissa", "quantity": "0.75 tbsp" },
+      { "name": "Rocket", "quantity": "40g" },
+      { "name": "Olive oil", "quantity": "0.75 tbsp" }
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Goat Cheese, Beetroot & Walnut Salad",
+    "category": "lunch",
+    "method": [
+      "Slice the cooked beetroot and arrange over the rocket.",
+      "Crumble over the hard goat cheese and scatter with walnuts.",
+      "Drizzle with balsamic vinegar and olive oil."
+    ],
+    "dave": [
+      { "name": "Cooked beetroot", "quantity": "100g" },
+      { "name": "Hard goat cheese", "quantity": "35g" },
+      { "name": "Walnuts", "quantity": "20g" },
+      { "name": "Rocket", "quantity": "50g" },
+      { "name": "Balsamic vinegar", "quantity": "1 tbsp" },
+      { "name": "Olive oil", "quantity": "1 tbsp" }
+    ],
+    "mel": [
+      { "name": "Cooked beetroot", "quantity": "80g" },
+      { "name": "Hard goat cheese", "quantity": "25g" },
+      { "name": "Walnuts", "quantity": "15g" },
+      { "name": "Rocket", "quantity": "40g" },
+      { "name": "Balsamic vinegar", "quantity": "0.75 tbsp" },
+      { "name": "Olive oil", "quantity": "0.75 tbsp" }
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Pork & Apple Slaw Bowl",
+    "category": "lunch",
+    "method": [
+      "Season the pork tenderloin and grill or pan-sear for 5-6 minutes per side until cooked through, then rest and slice.",
+      "Toss the cabbage, sliced apple and carrot together in a bowl.",
+      "Whisk the mustard and olive oil together for the dressing.",
+      "Top the slaw with the sliced pork and drizzle with the dressing."
+    ],
+    "dave": [
+      { "name": "Pork tenderloin", "quantity": "130g" },
+      { "name": "Cabbage", "quantity": "80g" },
+      { "name": "Apple", "quantity": "0.5" },
+      { "name": "Carrot", "quantity": "40g" },
+      { "name": "Mustard", "quantity": "1 tsp" },
+      { "name": "Olive oil", "quantity": "1 tbsp" }
+    ],
+    "mel": [
+      { "name": "Pork tenderloin", "quantity": "100g" },
+      { "name": "Cabbage", "quantity": "60g" },
+      { "name": "Apple", "quantity": "0.5" },
+      { "name": "Carrot", "quantity": "30g" },
+      { "name": "Mustard", "quantity": "0.75 tsp" },
+      { "name": "Olive oil", "quantity": "0.75 tbsp" }
+    ]
+  },
+  {
+    "id": 21,
+    "name": "Lamb & Vegetable Stew",
+    "category": "dinner",
+    "method": [
+      "Heat the olive oil in a large pot and brown the lamb mince for 4-5 minutes.",
+      "Add the onion and garlic and cook for 2-3 minutes until softened.",
+      "Add the carrot and parsnip, then pour in the tinned tomatoes and stock.",
+      "Bring to a simmer, cover, and cook for 30-35 minutes until the vegetables are tender.",
+      "Season with the herbs and serve."
+    ],
+    "dave": [
+      { "name": "Lamb mince", "quantity": "220g" },
+      { "name": "Carrot", "quantity": "120g" },
+      { "name": "Parsnip", "quantity": "120g" },
+      { "name": "Onion", "quantity": "60g" },
+      { "name": "Garlic cloves", "quantity": "2" },
+      { "name": "Tinned tomatoes", "quantity": "150g" },
+      { "name": "Gluten-free stock", "quantity": "200ml" },
+      { "name": "Mixed herbs", "quantity": "1 tsp" },
+      { "name": "Olive oil", "quantity": "1 tbsp" }
+    ],
+    "mel": [
+      { "name": "Lamb mince", "quantity": "160g" },
+      { "name": "Carrot", "quantity": "90g" },
+      { "name": "Parsnip", "quantity": "90g" },
+      { "name": "Onion", "quantity": "45g" },
+      { "name": "Garlic cloves", "quantity": "1" },
+      { "name": "Tinned tomatoes", "quantity": "120g" },
+      { "name": "Gluten-free stock", "quantity": "150ml" },
+      { "name": "Mixed herbs", "quantity": "0.75 tsp" },
+      { "name": "Olive oil", "quantity": "0.75 tbsp" }
+    ]
+  },
+  {
+    "id": 22,
+    "name": "Chicken Thighs with Roasted Root Veg",
+    "category": "dinner",
+    "method": [
+      "Preheat the oven to 200C (400F).",
+      "Arrange the chicken thighs, sweet potato, parsnip and carrots on a baking tray.",
+      "Drizzle with olive oil, scatter over the garlic and rosemary, and season.",
+      "Roast for 35-40 minutes, turning halfway, until the chicken is cooked through and the vegetables are tender."
+    ],
+    "dave": [
+      { "name": "Chicken thighs", "quantity": "250g" },
+      { "name": "Sweet potato", "quantity": "180g" },
+      { "name": "Parsnip", "quantity": "100g" },
+      { "name": "Carrots", "quantity": "100g" },
+      { "name": "Garlic cloves", "quantity": "2" },
+      { "name": "Rosemary", "quantity": "1 tsp" },
+      { "name": "Olive oil", "quantity": "1.5 tbsp" }
+    ],
+    "mel": [
+      { "name": "Chicken thighs", "quantity": "180g" },
+      { "name": "Sweet potato", "quantity": "140g" },
+      { "name": "Parsnip", "quantity": "75g" },
+      { "name": "Carrots", "quantity": "75g" },
+      { "name": "Garlic cloves", "quantity": "1" },
+      { "name": "Rosemary", "quantity": "0.75 tsp" },
+      { "name": "Olive oil", "quantity": "1 tbsp" }
+    ]
+  },
+  {
+    "id": 23,
+    "name": "Turkey & Bean Chilli with Rice",
+    "category": "dinner",
+    "method": [
+      "Cook the rice according to packet instructions.",
+      "Heat the olive oil in a pan and cook the onion and garlic for 2-3 minutes.",
+      "Add the turkey mince and cook for 6-8 minutes, breaking it up, until browned.",
+      "Stir in the bell pepper, tinned tomatoes, black beans and chilli, and simmer for 15 minutes.",
+      "Serve over the cooked rice."
+    ],
+    "dave": [
+      { "name": "Turkey mince", "quantity": "220g" },
+      { "name": "Rice", "quantity": "150g" },
+      { "name": "Black beans", "quantity": "100g" },
+      { "name": "Bell pepper", "quantity": "80g" },
+      { "name": "Tinned tomatoes", "quantity": "150g" },
+      { "name": "Onion", "quantity": "50g" },
+      { "name": "Garlic cloves", "quantity": "2" },
+      { "name": "Chilli", "quantity": "1" },
+      { "name": "Olive oil", "quantity": "1 tbsp" }
+    ],
+    "mel": [
+      { "name": "Turkey mince", "quantity": "170g" },
+      { "name": "Rice", "quantity": "110g" },
+      { "name": "Black beans", "quantity": "80g" },
+      { "name": "Bell pepper", "quantity": "60g" },
+      { "name": "Tinned tomatoes", "quantity": "120g" },
+      { "name": "Onion", "quantity": "40g" },
+      { "name": "Garlic cloves", "quantity": "1" },
+      { "name": "Chilli", "quantity": "0.5" },
+      { "name": "Olive oil", "quantity": "0.75 tbsp" }
+    ]
+  },
+  {
+    "id": 24,
+    "name": "Pork Tenderloin with Cauliflower Mash & Green Beans",
+    "category": "dinner",
+    "method": [
+      "Season the pork tenderloin and roast or pan-sear until cooked through, about 20-25 minutes, then rest and slice.",
+      "Steam or boil the cauliflower until very tender, then drain well.",
+      "Mash the cauliflower with the garlic and olive oil until smooth.",
+      "Steam the green beans for 4-5 minutes until just tender.",
+      "Serve the sliced pork with the mash and green beans."
+    ],
+    "dave": [
+      { "name": "Pork tenderloin", "quantity": "220g" },
+      { "name": "Cauliflower", "quantity": "250g" },
+      { "name": "Green beans", "quantity": "100g" },
+      { "name": "Garlic cloves", "quantity": "2" },
+      { "name": "Olive oil", "quantity": "1.5 tbsp" }
+    ],
+    "mel": [
+      { "name": "Pork tenderloin", "quantity": "170g" },
+      { "name": "Cauliflower", "quantity": "200g" },
+      { "name": "Green beans", "quantity": "80g" },
+      { "name": "Garlic cloves", "quantity": "1" },
+      { "name": "Olive oil", "quantity": "1 tbsp" }
+    ]
+  },
+  {
+    "id": 25,
+    "name": "Beef Mince Bolognese with Gluten-Free Pasta",
+    "category": "dinner",
+    "method": [
+      "Cook the gluten-free pasta according to packet instructions.",
+      "Heat the olive oil in a pan and cook the onion, carrot and celery for 4-5 minutes until softened.",
+      "Add the garlic and beef mince and cook for 6-8 minutes, breaking it up, until browned.",
+      "Pour in the tinned tomatoes and simmer for 15-20 minutes.",
+      "Serve the sauce over the pasta."
+    ],
+    "dave": [
+      { "name": "Beef mince", "quantity": "200g" },
+      { "name": "Gluten-free pasta", "quantity": "150g" },
+      { "name": "Tinned tomatoes", "quantity": "200g" },
+      { "name": "Carrot", "quantity": "60g" },
+      { "name": "Celery", "quantity": "40g" },
+      { "name": "Onion", "quantity": "50g" },
+      { "name": "Garlic cloves", "quantity": "2" },
+      { "name": "Olive oil", "quantity": "1 tbsp" }
+    ],
+    "mel": [
+      { "name": "Beef mince", "quantity": "150g" },
+      { "name": "Gluten-free pasta", "quantity": "110g" },
+      { "name": "Tinned tomatoes", "quantity": "150g" },
+      { "name": "Carrot", "quantity": "45g" },
+      { "name": "Celery", "quantity": "30g" },
+      { "name": "Onion", "quantity": "40g" },
+      { "name": "Garlic cloves", "quantity": "1" },
+      { "name": "Olive oil", "quantity": "0.75 tbsp" }
+    ]
+  },
+  {
+    "id": 26,
+    "name": "Moroccan Lamb Tagine with Rice",
+    "category": "dinner",
+    "method": [
+      "Cook the rice according to packet instructions.",
+      "Heat the olive oil in a pot and cook the onion and garlic for 2-3 minutes.",
+      "Add the lamb mince and cook for 5-6 minutes, breaking it up, until browned.",
+      "Stir in the cinnamon and cumin, then add the chickpeas and dried apricots.",
+      "Cover with a little water and simmer for 20-25 minutes until thickened.",
+      "Serve over the rice."
+    ],
+    "dave": [
+      { "name": "Lamb mince", "quantity": "220g" },
+      { "name": "Rice", "quantity": "150g" },
+      { "name": "Dried apricots", "quantity": "30g" },
+      { "name": "Chickpeas", "quantity": "80g" },
+      { "name": "Cinnamon", "quantity": "0.5 tsp" },
+      { "name": "Cumin", "quantity": "0.5 tsp" },
+      { "name": "Onion", "quantity": "50g" },
+      { "name": "Garlic cloves", "quantity": "2" },
+      { "name": "Olive oil", "quantity": "1 tbsp" }
+    ],
+    "mel": [
+      { "name": "Lamb mince", "quantity": "170g" },
+      { "name": "Rice", "quantity": "110g" },
+      { "name": "Dried apricots", "quantity": "20g" },
+      { "name": "Chickpeas", "quantity": "60g" },
+      { "name": "Cinnamon", "quantity": "0.5 tsp" },
+      { "name": "Cumin", "quantity": "0.5 tsp" },
+      { "name": "Onion", "quantity": "40g" },
+      { "name": "Garlic cloves", "quantity": "1" },
+      { "name": "Olive oil", "quantity": "0.75 tbsp" }
+    ]
+  },
+  {
+    "id": 27,
+    "name": "Chicken & Vegetable Stir-Fry with Rice Noodles",
+    "category": "dinner",
+    "method": [
+      "Cook the rice noodles according to packet instructions, then drain.",
+      "Heat the sesame oil in a wok or large pan over high heat.",
+      "Stir-fry the chicken for 4-5 minutes until cooked through, then set aside.",
+      "Add the broccoli, carrot and bell pepper and stir-fry for 3-4 minutes.",
+      "Return the chicken to the pan with the garlic, ginger and gluten-free tamari, and toss together for 1-2 minutes.",
+      "Serve over the rice noodles."
+    ],
+    "dave": [
+      { "name": "Chicken breast", "quantity": "220g" },
+      { "name": "Rice noodles", "quantity": "150g" },
+      { "name": "Broccoli", "quantity": "120g" },
+      { "name": "Carrot", "quantity": "60g" },
+      { "name": "Bell pepper", "quantity": "80g" },
+      { "name": "Gluten-free tamari", "quantity": "2 tbsp" },
+      { "name": "Sesame oil", "quantity": "1 tbsp" },
+      { "name": "Garlic cloves", "quantity": "2" },
+      { "name": "Ginger", "quantity": "1 tsp" }
+    ],
+    "mel": [
+      { "name": "Chicken breast", "quantity": "170g" },
+      { "name": "Rice noodles", "quantity": "110g" },
+      { "name": "Broccoli", "quantity": "90g" },
+      { "name": "Carrot", "quantity": "45g" },
+      { "name": "Bell pepper", "quantity": "60g" },
+      { "name": "Gluten-free tamari", "quantity": "1.5 tbsp" },
+      { "name": "Sesame oil", "quantity": "0.75 tbsp" },
+      { "name": "Garlic cloves", "quantity": "1" },
+      { "name": "Ginger", "quantity": "0.75 tsp" }
+    ]
+  },
+  {
+    "id": 28,
+    "name": "Turkey Meatballs with Courgette & Tomato Sauce",
+    "category": "dinner",
+    "method": [
+      "In a bowl, combine the turkey mince, ground almonds, egg and garlic. Mix well and shape into meatballs.",
+      "Heat a pan over medium heat and brown the meatballs for 6-8 minutes, turning occasionally.",
+      "Add the tinned tomatoes and courgette and simmer for 12-15 minutes until the meatballs are cooked through.",
+      "Stir through the basil before serving."
+    ],
+    "dave": [
+      { "name": "Turkey mince", "quantity": "250g" },
+      { "name": "Ground almonds", "quantity": "30g" },
+      { "name": "Egg", "quantity": "1" },
+      { "name": "Tinned tomatoes", "quantity": "200g" },
+      { "name": "Courgette", "quantity": "150g" },
+      { "name": "Basil", "quantity": "1 tbsp" },
+      { "name": "Garlic cloves", "quantity": "2" },
+      { "name": "Olive oil", "quantity": "1 tbsp" }
+    ],
+    "mel": [
+      { "name": "Turkey mince", "quantity": "190g" },
+      { "name": "Ground almonds", "quantity": "25g" },
+      { "name": "Egg", "quantity": "0.5" },
+      { "name": "Tinned tomatoes", "quantity": "150g" },
+      { "name": "Courgette", "quantity": "110g" },
+      { "name": "Basil", "quantity": "0.75 tbsp" },
+      { "name": "Garlic cloves", "quantity": "1" },
+      { "name": "Olive oil", "quantity": "0.75 tbsp" }
+    ]
+  },
+  {
+    "id": 29,
+    "name": "Pork & Sweet Potato Curry",
+    "category": "dinner",
+    "method": [
+      "Cook the rice according to packet instructions.",
+      "Heat a pan and brown the pork tenderloin pieces for 4-5 minutes.",
+      "Stir in the curry paste and cook for 1 minute.",
+      "Add the sweet potato and coconut milk, cover and simmer for 20-25 minutes until tender.",
+      "Stir in the spinach until wilted, then serve over the rice."
+    ],
+    "dave": [
+      { "name": "Pork tenderloin", "quantity": "220g" },
+      { "name": "Sweet potato", "quantity": "180g" },
+      { "name": "Coconut milk", "quantity": "150ml" },
+      { "name": "Curry paste", "quantity": "1.5 tbsp" },
+      { "name": "Spinach", "quantity": "80g" },
+      { "name": "Rice", "quantity": "150g" }
+    ],
+    "mel": [
+      { "name": "Pork tenderloin", "quantity": "170g" },
+      { "name": "Sweet potato", "quantity": "140g" },
+      { "name": "Coconut milk", "quantity": "120ml" },
+      { "name": "Curry paste", "quantity": "1 tbsp" },
+      { "name": "Spinach", "quantity": "60g" },
+      { "name": "Rice", "quantity": "110g" }
+    ]
+  },
+  {
+    "id": 30,
+    "name": "Lamb Chops with Roasted Veg",
+    "category": "dinner",
+    "method": [
+      "Preheat the oven to 200C (400F).",
+      "Toss the broccoli and carrots with olive oil, garlic and rosemary and roast for 20 minutes.",
+      "Season the lamb chops and grill or pan-sear for 3-4 minutes per side until cooked to your liking.",
+      "Rest the lamb for a few minutes, then serve with the roasted vegetables."
+    ],
+    "dave": [
+      { "name": "Lamb chops", "quantity": "250g" },
+      { "name": "Broccoli", "quantity": "150g" },
+      { "name": "Carrots", "quantity": "100g" },
+      { "name": "Garlic cloves", "quantity": "2" },
+      { "name": "Rosemary", "quantity": "1 tsp" },
+      { "name": "Olive oil", "quantity": "1.5 tbsp" }
+    ],
+    "mel": [
+      { "name": "Lamb chops", "quantity": "180g" },
+      { "name": "Broccoli", "quantity": "110g" },
+      { "name": "Carrots", "quantity": "75g" },
+      { "name": "Garlic cloves", "quantity": "1" },
+      { "name": "Rosemary", "quantity": "0.75 tsp" },
+      { "name": "Olive oil", "quantity": "1 tbsp" }
+    ]
+  },
+  {
+    "id": 31,
+    "name": "Coconut Date Energy Bites",
     "category": "snack",
     "method": [
-      "Combine the peanut butter, honey and protein powder in a bowl and mix until smooth.",
-      "Fold in the oats until evenly combined.",
+      "Pit the dates and blend or mash with the almond butter until a paste forms.",
+      "Mix in the desiccated coconut and chia seeds until evenly combined.",
       "Roll the mixture into small balls.",
       "Refrigerate for at least 30 minutes to firm up before eating."
     ],
     "dave": [
-      { "name": "Peanut butter", "quantity": "50g" },
-      { "name": "Honey", "quantity": "2 tbsp" },
-      { "name": "Protein powder", "quantity": "30g" },
-      { "name": "Oats", "quantity": "40g" }
+      { "name": "Dates", "quantity": "60g" },
+      { "name": "Almond butter", "quantity": "30g" },
+      { "name": "Desiccated coconut", "quantity": "20g" },
+      { "name": "Chia seeds", "quantity": "1 tbsp" }
     ],
     "mel": [
-      { "name": "Peanut butter", "quantity": "40g" },
-      { "name": "Honey", "quantity": "1.5 tbsp" },
-      { "name": "Protein powder", "quantity": "25g" },
-      { "name": "Oats", "quantity": "30g" }
+      { "name": "Dates", "quantity": "45g" },
+      { "name": "Almond butter", "quantity": "20g" },
+      { "name": "Desiccated coconut", "quantity": "15g" },
+      { "name": "Chia seeds", "quantity": "0.75 tbsp" }
+    ]
+  },
+  {
+    "id": 32,
+    "name": "Spiced Roasted Chickpeas",
+    "category": "snack",
+    "method": [
+      "Preheat the oven to 200C (400F).",
+      "Pat the chickpeas dry and toss with the olive oil, smoked paprika and cumin.",
+      "Spread on a baking tray and roast for 25-30 minutes, shaking halfway, until crisp."
+    ],
+    "dave": [
+      { "name": "Chickpeas", "quantity": "150g" },
+      { "name": "Olive oil", "quantity": "1 tbsp" },
+      { "name": "Smoked paprika", "quantity": "0.5 tsp" },
+      { "name": "Cumin", "quantity": "0.5 tsp" }
+    ],
+    "mel": [
+      { "name": "Chickpeas", "quantity": "110g" },
+      { "name": "Olive oil", "quantity": "0.75 tbsp" },
+      { "name": "Smoked paprika", "quantity": "0.5 tsp" },
+      { "name": "Cumin", "quantity": "0.5 tsp" }
+    ]
+  },
+  {
+    "id": 33,
+    "name": "Goat Cheese & Cucumber Bites",
+    "category": "snack",
+    "method": [
+      "Slice the cucumber into rounds.",
+      "Top each round with a slice of hard goat cheese and a piece of walnut.",
+      "Finish with a crack of black pepper."
+    ],
+    "dave": [
+      { "name": "Cucumber", "quantity": "150g" },
+      { "name": "Hard goat cheese", "quantity": "40g" },
+      { "name": "Walnuts", "quantity": "20g" },
+      { "name": "Black pepper", "quantity": "1 pinch" }
+    ],
+    "mel": [
+      { "name": "Cucumber", "quantity": "120g" },
+      { "name": "Hard goat cheese", "quantity": "30g" },
+      { "name": "Walnuts", "quantity": "15g" },
+      { "name": "Black pepper", "quantity": "1 pinch" }
+    ]
+  },
+  {
+    "id": 34,
+    "name": "Apple & Almond Butter Slices",
+    "category": "snack",
+    "method": [
+      "Core and slice the apple into wedges.",
+      "Spread or dip each wedge with almond butter.",
+      "Dust with cinnamon before serving."
+    ],
+    "dave": [
+      { "name": "Apple", "quantity": "1" },
+      { "name": "Almond butter", "quantity": "25g" },
+      { "name": "Cinnamon", "quantity": "0.25 tsp" }
+    ],
+    "mel": [
+      { "name": "Apple", "quantity": "1" },
+      { "name": "Almond butter", "quantity": "18g" },
+      { "name": "Cinnamon", "quantity": "0.25 tsp" }
+    ]
+  },
+  {
+    "id": 35,
+    "name": "Spiced Roasted Almonds",
+    "category": "snack",
+    "method": [
+      "Preheat the oven to 180C (350F).",
+      "Toss the almonds with the olive oil, smoked paprika and cumin.",
+      "Spread on a baking tray and roast for 8-10 minutes, shaking halfway, until fragrant."
+    ],
+    "dave": [
+      { "name": "Almonds", "quantity": "40g" },
+      { "name": "Olive oil", "quantity": "0.5 tsp" },
+      { "name": "Smoked paprika", "quantity": "0.25 tsp" },
+      { "name": "Cumin", "quantity": "0.25 tsp" }
+    ],
+    "mel": [
+      { "name": "Almonds", "quantity": "30g" },
+      { "name": "Olive oil", "quantity": "0.5 tsp" },
+      { "name": "Smoked paprika", "quantity": "0.25 tsp" },
+      { "name": "Cumin", "quantity": "0.25 tsp" }
+    ]
+  },
+  {
+    "id": 36,
+    "name": "Banana & Walnut Bites",
+    "category": "snack",
+    "method": [
+      "Slice the banana into rounds.",
+      "Top each round with a piece of walnut.",
+      "Drizzle with honey and dust with cinnamon."
+    ],
+    "dave": [
+      { "name": "Banana", "quantity": "1" },
+      { "name": "Walnuts", "quantity": "20g" },
+      { "name": "Honey", "quantity": "0.5 tbsp" },
+      { "name": "Cinnamon", "quantity": "0.25 tsp" }
+    ],
+    "mel": [
+      { "name": "Banana", "quantity": "1" },
+      { "name": "Walnuts", "quantity": "15g" },
+      { "name": "Honey", "quantity": "0.5 tbsp" },
+      { "name": "Cinnamon", "quantity": "0.25 tsp" }
+    ]
+  },
+  {
+    "id": 37,
+    "name": "Carrot & Cucumber Sticks with Tahini Dip",
+    "category": "snack",
+    "method": [
+      "Cut the carrot and cucumber into sticks.",
+      "Whisk the tahini with a squeeze of lemon and a splash of water until smooth.",
+      "Serve the vegetable sticks with the tahini dip."
+    ],
+    "dave": [
+      { "name": "Carrot", "quantity": "80g" },
+      { "name": "Cucumber", "quantity": "80g" },
+      { "name": "Tahini", "quantity": "1.5 tbsp" },
+      { "name": "Lemon", "quantity": "0.25" }
+    ],
+    "mel": [
+      { "name": "Carrot", "quantity": "60g" },
+      { "name": "Cucumber", "quantity": "60g" },
+      { "name": "Tahini", "quantity": "1 tbsp" },
+      { "name": "Lemon", "quantity": "0.25" }
+    ]
+  },
+  {
+    "id": 38,
+    "name": "Coconut Yogurt & Berry Pot",
+    "category": "snack",
+    "method": [
+      "Spoon the coconut yogurt into a bowl or jar.",
+      "Top with the mixed berries and scatter over the chia seeds."
+    ],
+    "dave": [
+      { "name": "Coconut yogurt", "quantity": "150g" },
+      { "name": "Mixed berries", "quantity": "80g" },
+      { "name": "Chia seeds", "quantity": "1 tsp" }
+    ],
+    "mel": [
+      { "name": "Coconut yogurt", "quantity": "120g" },
+      { "name": "Mixed berries", "quantity": "60g" },
+      { "name": "Chia seeds", "quantity": "0.75 tsp" }
+    ]
+  },
+  {
+    "id": 39,
+    "name": "Hard-Boiled Eggs with Smoked Paprika",
+    "category": "snack",
+    "method": [
+      "Boil the eggs for 8-9 minutes, then cool and peel.",
+      "Halve the eggs and dust with smoked paprika and a pinch of salt."
+    ],
+    "dave": [
+      { "name": "Eggs", "quantity": "2" },
+      { "name": "Smoked paprika", "quantity": "0.25 tsp" },
+      { "name": "Salt", "quantity": "1 pinch" }
+    ],
+    "mel": [
+      { "name": "Eggs", "quantity": "1" },
+      { "name": "Smoked paprika", "quantity": "0.25 tsp" },
+      { "name": "Salt", "quantity": "1 pinch" }
+    ]
+  },
+  {
+    "id": 40,
+    "name": "Mixed Berry & Seed Bites",
+    "category": "snack",
+    "method": [
+      "Pit the dates and blend or mash until a paste forms.",
+      "Mix in the mixed seeds and desiccated coconut until evenly combined.",
+      "Roll into small balls and refrigerate for 30 minutes before eating."
+    ],
+    "dave": [
+      { "name": "Dates", "quantity": "50g" },
+      { "name": "Mixed seeds", "quantity": "25g" },
+      { "name": "Desiccated coconut", "quantity": "15g" }
+    ],
+    "mel": [
+      { "name": "Dates", "quantity": "35g" },
+      { "name": "Mixed seeds", "quantity": "18g" },
+      { "name": "Desiccated coconut", "quantity": "10g" }
     ]
   }
 ]
