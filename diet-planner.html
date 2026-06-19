@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diet Planner — Dave &amp; Mel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #fafaf8;
+    --text-primary: #1a1a1a;
+    --text-secondary: #4a4a4a;
+    --text-tertiary: #999999;
+    --border: #e8e8e6;
+    --accent: #1a1a1a;
+    --radius: 2px;
+    --ease: 0.3s ease;
+  }
+
+  [data-theme="dark"]{
+    --bg: #161513;
+    --text-primary: #f3f2ee;
+    --text-secondary: #b9b6ae;
+    --text-tertiary: #76736c;
+    --border: #2d2b27;
+    --accent: #f3f2ee;
+  }
+
+  *{ box-sizing: border-box; }
+
+  html, body{
+    margin:0;
+    padding:0;
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.4s ease, color 0.4s ease;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2{
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  h1{ font-size: 3.2rem; line-height: 1.1; letter-spacing: -0.02em; }
+  h2{ font-size: 2rem; line-height: 1.2; letter-spacing: -0.015em; }
+
+  h3{
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+    font-weight: 600;
+    margin: 0;
+  }
+
+  h4{
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  h5{
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-tertiary);
+    font-weight: 600;
+    margin: 0;
+  }
+
+  p{
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  ol.method-list{
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin: 0;
+    padding-left: 1.5rem;
+  }
+  ol.method-list li{ margin-bottom: 0.5rem; }
+  ol.method-list li::marker{ color: var(--text-tertiary); font-weight: 600; }
+
+  button{ font-family: inherit; }
+
+  /* ---------- Layout shell ---------- */
+  .app{
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 2rem 6rem;
+  }
+
+  header.top{
+    display:flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 3.5rem 0 2.5rem;
+  }
+
+  header.top .brand{
+    display:flex;
+    align-items: baseline;
+    gap: 0.85rem;
+  }
+
+  header.top .brand span.tag{
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+  }
+
+  .theme-toggle{
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.5rem 0.9rem;
+    cursor: pointer;
+    transition: border-color var(--ease), color var(--ease), background-color var(--ease);
+  }
+  .theme-toggle:hover{ border-color: var(--text-tertiary); color: var(--text-primary); }
+  .theme-toggle:focus-visible{ outline: 2px solid var(--text-primary); outline-offset: 2px; }
+
+  nav.tabs{
+    display:flex;
+    gap: 2rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2.5rem;
+  }
+
+  nav.tabs button{
+    background:none;
+    border:none;
+    padding: 0 0 0.9rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    position: relative;
+    transition: color var(--ease);
+  }
+  nav.tabs button::after{
+    content:"";
+    position:absolute;
+    left:0; right:0; bottom:-1px;
+    height:1px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--ease);
+  }
+  nav.tabs button.active{ color: var(--text-primary); }
+  nav.tabs button.active::after{ transform: scaleX(1); }
+  nav.tabs button:hover{ color: var(--text-primary); }
+  nav.tabs button:focus-visible{ outline: 2px solid var(--text-primary); outline-offset: 3px; }
+
+  .page{ display:none; animation: fadein 0.4s ease; }
+  .page.active{ display:block; }
+
+  @keyframes fadein{
+    from{ opacity:0; transform: translateY(6px); }
+    to{ opacity:1; transform: translateY(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .page{ animation: none; }
+    *{ transition: none !important; }
+  }
+
+  /* ---------- Goals page ---------- */
+  .goals-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  .goal-card{
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2rem 1.75rem;
+  }
+
+  .goal-card .name-row{
+    display:flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 1.75rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .goal-card .stats{
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+    letter-spacing: 0.02em;
+  }
+
+  .goal-card .metric{
+    margin-bottom: 1.5rem;
+  }
+  .goal-card .metric:last-child{ margin-bottom: 0; }
+
+  .goal-card .metric h5{ margin-bottom: 0.5rem; }
+  .goal-card .metric .value{
+    font-size: 1.4rem;
+    font-family: 'Instrument Serif', serif;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+  }
+  .goal-card .metric .desc{
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .goals-intro{
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .goals-intro h5{ margin-bottom: 0.75rem; }
+  .goals-intro p{ max-width: 60ch; }
+
+  .goals-intro .assumptions{
+    margin-top: 1.25rem;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .goals-intro .assumptions .assumption-block h5{ margin-bottom: 0.4rem; }
+  .goals-intro .assumptions .assumption-block p{ font-size: 0.85rem; }
+
+  .calorie-block{
+    margin-bottom: 1.75rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .calorie-block h5{ margin-bottom: 0.5rem; }
+  .calorie-value{
+    font-size: 2.4rem;
+    font-family: 'Instrument Serif', serif;
+    color: var(--text-primary);
+    line-height: 1.1;
+    margin-bottom: 0.4rem;
+  }
+  .calorie-sub{
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+    letter-spacing: 0.01em;
+  }
+
+  .macro-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .macro h5{ margin-bottom: 0.5rem; }
+  .macro-value{
+    font-size: 1.3rem;
+    font-family: 'Instrument Serif', serif;
+    color: var(--text-primary);
+    margin-bottom: 0.2rem;
+  }
+  .macro-sub{
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+  }
+
+  .protein-note{
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+  .protein-note b{ color: var(--text-primary); font-weight: 600; }
+
+  @media (max-width: 768px){
+    .goals-grid{ grid-template-columns: 1fr; gap: 1.5rem; }
+    .goals-intro .assumptions{ grid-template-columns: 1fr; gap: 1rem; }
+    .macro-grid{ grid-template-columns: 1fr; gap: 1rem; }
+  }
+
+  /* ---------- Recipes page ---------- */
+  .recipes-header{
+    display:flex;
+    align-items:flex-end;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .category-tabs{
+    display:flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .category-tabs button{
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.45rem 0.9rem;
+    cursor: pointer;
+    transition: border-color var(--ease), color var(--ease), background-color var(--ease);
+  }
+  .category-tabs button:hover{ border-color: var(--text-tertiary); }
+  .category-tabs button.active{
+    background: var(--accent);
+    color: var(--bg);
+    border-color: var(--accent);
+  }
+  .category-tabs button:focus-visible{ outline: 2px solid var(--text-primary); outline-offset: 2px; }
+
+  .recipe-list{
+    display:flex;
+    flex-direction:column;
+    gap: 1rem;
+  }
+
+  .recipe-card{
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: border-color var(--ease);
+  }
+
+  .recipe-card.checked{ border-color: var(--text-tertiary); }
+
+  .recipe-card-head{
+    display:flex;
+    align-items:center;
+    gap: 1rem;
+    padding: 1.1rem 1.5rem;
+    cursor:pointer;
+  }
+
+  .recipe-card-head input[type="checkbox"]{
+    width: 16px;
+    height: 16px;
+    accent-color: var(--accent);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .recipe-card-head .title{
+    flex: 1;
+    min-width: 0;
+  }
+  .recipe-card-head .title h4{ margin-bottom: 0.15rem; }
+  .recipe-card-head .title .cat{
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-tertiary);
+  }
+
+  .multiplier{
+    display:flex;
+    align-items:center;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    flex-shrink: 0;
+  }
+  .multiplier input{
+    width: 2.6rem;
+    text-align:center;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    padding: 0.3rem 0.2rem;
+    transition: border-color var(--ease), background-color var(--ease);
+  }
+  .multiplier input:focus{ border-color: var(--text-primary); outline:none; }
+
+  .expand-arrow{
+    width: 10px;
+    height:10px;
+    border-right: 1.5px solid var(--text-tertiary);
+    border-bottom: 1.5px solid var(--text-tertiary);
+    transform: rotate(45deg);
+    transition: transform var(--ease);
+    flex-shrink:0;
+    margin-right: 0.25rem;
+  }
+  .recipe-card.expanded .expand-arrow{ transform: rotate(-135deg); }
+
+  .recipe-card-body{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--ease);
+    border-top: 1px solid transparent;
+  }
+  .recipe-card.expanded .recipe-card-body{
+    border-top: 1px solid var(--border);
+  }
+
+  .recipe-card-body-inner{
+    padding: 1.75rem 1.5rem 2rem;
+  }
+
+  .recipe-card-body-inner h5{ margin-bottom: 1rem; }
+
+  .ingredient-section{ margin-bottom: 2rem; }
+
+  .ingredient-row{
+    display:flex;
+    justify-content: space-between;
+    align-items:baseline;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+  .ingredient-row:last-child{ border-bottom:none; }
+  .ingredient-row .qty{
+    font-weight: 700;
+    color: var(--text-primary);
+    text-align: right;
+    flex-shrink:0;
+    margin-left: 1rem;
+  }
+
+  .divide-note{
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-tertiary);
+    margin: 1.75rem 0 1rem;
+  }
+
+  .split-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .split-grid h5{ margin-bottom: 0.85rem; }
+
+  @media (max-width: 768px){
+    .split-grid{ grid-template-columns: 1fr; gap: 1.5rem; }
+    .recipe-card-head{ padding: 1rem; flex-wrap: wrap; }
+  }
+
+  /* ---------- Shopping page ---------- */
+  .shopping-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap: 0.6rem;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .shopping-tag{
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.4rem 0.85rem;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+  }
+  .shopping-tag b{ color: var(--text-primary); font-weight: 600; }
+
+  .shop-group{ margin-bottom: 2.5rem; }
+  .shop-group h5{ margin-bottom: 1rem; }
+
+  .shop-item{
+    display:flex;
+    justify-content: space-between;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+  }
+  .shop-item:last-child{ border-bottom:none; }
+  .shop-item .qty{ font-weight: 700; color: var(--text-primary); }
+
+  .empty-state{
+    color: var(--text-tertiary);
+    font-size: 0.9rem;
+    padding: 3rem 0;
+    text-align:center;
+    border: 1px dashed var(--border);
+    border-radius: var(--radius);
+  }
+
+  footer.app-footer{
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    letter-spacing: 0.03em;
+  }
+</style>
+</head>
+<body data-theme="light">
+
+<div class="app">
+
+  <header class="top">
+    <div class="brand">
+      <h2>Diet Planner</h2>
+      <span class="tag">Dave &amp; Mel</span>
+    </div>
+    <button class="theme-toggle" id="themeToggle">Dark mode</button>
+  </header>
+
+  <nav class="tabs" id="mainNav">
+    <button data-page="goals" class="active">Goals</button>
+    <button data-page="recipes">Recipes</button>
+    <button data-page="shopping">Shopping</button>
+  </nav>
+
+  <!-- GOALS PAGE -->
+  <section class="page active" id="page-goals">
+    <div class="goals-intro">
+      <h5>Shared objective</h5>
+      <p>Both 48 and already active. The plan leans on a measured calorie deficit and high protein to get leaner, with extra emphasis on preserving and building lean muscle for Dave. Targets below use the Mifflin-St Jeor formula for maintenance calories, adjusted for each person's daily activity and training load.</p>
+      <div class="assumptions">
+        <div class="assumption-block">
+          <h5>Dave's activity profile</h5>
+          <p>Sedentary office job, 3–4 mixed weights/cardio sessions per week — calculated as moderately active.</p>
+        </div>
+        <div class="assumption-block">
+          <h5>Mel's activity profile</h5>
+          <p>Physically active day (cleaning, gardening) plus 3–4 sessions per week — calculated as moderately active.</p>
+        </div>
+      </div>
+    </div>
+    <div class="goals-grid">
+      <div class="goal-card">
+        <div class="name-row">
+          <h4>Dave</h4>
+          <span class="stats">178cm · 76kg</span>
+        </div>
+        <div class="metric">
+          <h5>Body fat target</h5>
+          <div class="value">12–15%</div>
+          <div class="desc">Lean mass gain with visible definition.</div>
+        </div>
+        <div class="calorie-block">
+          <h5>Daily calories</h5>
+          <div class="calorie-value">2,150 kcal</div>
+          <div class="calorie-sub">Maintenance ~2,540 kcal · 400 kcal deficit</div>
+        </div>
+        <div class="macro-grid">
+          <div class="macro">
+            <h5>Protein</h5>
+            <div class="macro-value">150g</div>
+            <div class="macro-sub">600 kcal · 28%</div>
+          </div>
+          <div class="macro">
+            <h5>Fat</h5>
+            <div class="macro-value">60g</div>
+            <div class="macro-sub">540 kcal · 25%</div>
+          </div>
+          <div class="macro">
+            <h5>Carbs</h5>
+            <div class="macro-value">250g</div>
+            <div class="macro-sub">1,000 kcal · 47%</div>
+          </div>
+        </div>
+        <div class="metric protein-note">
+          <b>2.0g protein per kg bodyweight</b> — set at the higher end of the range to support lean muscle growth while training in a deficit.
+        </div>
+      </div>
+      <div class="goal-card">
+        <div class="name-row">
+          <h4>Mel</h4>
+          <span class="stats">168cm · 60kg</span>
+        </div>
+        <div class="metric">
+          <h5>Body fat target</h5>
+          <div class="value">18–22%</div>
+          <div class="desc">Lean optimization while staying strong and active.</div>
+        </div>
+        <div class="calorie-block">
+          <h5>Daily calories</h5>
+          <div class="calorie-value">1,600 kcal</div>
+          <div class="calorie-sub">Maintenance ~1,940 kcal · 350 kcal deficit</div>
+        </div>
+        <div class="macro-grid">
+          <div class="macro">
+            <h5>Protein</h5>
+            <div class="macro-value">100g</div>
+            <div class="macro-sub">400 kcal · 25%</div>
+          </div>
+          <div class="macro">
+            <h5>Fat</h5>
+            <div class="macro-value">50g</div>
+            <div class="macro-sub">450 kcal · 28%</div>
+          </div>
+          <div class="macro">
+            <h5>Carbs</h5>
+            <div class="macro-value">185g</div>
+            <div class="macro-sub">740 kcal · 46%</div>
+          </div>
+        </div>
+        <div class="metric protein-note">
+          <b>1.7g protein per kg bodyweight</b> — supports recovery from training and daily physical activity while preserving muscle in a deficit.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECIPES PAGE -->
+  <section class="page" id="page-recipes">
+    <div class="recipes-header">
+      <h5 id="recipeCount">10 recipes</h5>
+      <div class="category-tabs" id="categoryTabs"></div>
+    </div>
+    <div class="recipe-list" id="recipeList"></div>
+  </section>
+
+  <!-- SHOPPING PAGE -->
+  <section class="page" id="page-shopping">
+    <div class="shopping-tags" id="shoppingTags"></div>
+    <div id="shoppingGroups"></div>
+  </section>
+
+  <footer class="app-footer">Diet Planner — selections saved on this device</footer>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var STORAGE_SELECTED = "dietPlannerSelected";
+  var STORAGE_BATCHES  = "dietPlannerBatches";
+  var STORAGE_THEME    = "dietPlannerTheme";
+
+  var state = {
+    recipes: [],
+    selected: loadJSON(STORAGE_SELECTED, {}),
+    batches: loadJSON(STORAGE_BATCHES, {}),
+    expanded: {},
+    activeCategory: "all"
+  };
+
+  function loadJSON(key, fallback){
+    try{
+      var raw = localStorage.getItem(key);
+      return raw ? JSON.parse(raw) : fallback;
+    }catch(e){ return fallback; }
+  }
+  function saveJSON(key, value){
+    try{ localStorage.setItem(key, JSON.stringify(value)); }catch(e){}
+  }
+
+  /* ---------- Theme ---------- */
+  var themeToggle = document.getElementById("themeToggle");
+  function applyTheme(theme){
+    document.body.setAttribute("data-theme", theme);
+    themeToggle.textContent = theme === "dark" ? "Light mode" : "Dark mode";
+  }
+  var savedTheme = localStorage.getItem(STORAGE_THEME) || "light";
+  applyTheme(savedTheme);
+  themeToggle.addEventListener("click", function(){
+    var current = document.body.getAttribute("data-theme");
+    var next = current === "dark" ? "light" : "dark";
+    applyTheme(next);
+    localStorage.setItem(STORAGE_THEME, next);
+  });
+
+  /* ---------- Nav ---------- */
+  var navButtons = document.querySelectorAll("#mainNav button");
+  navButtons.forEach(function(btn){
+    btn.addEventListener("click", function(){
+      navButtons.forEach(function(b){ b.classList.remove("active"); });
+      btn.classList.add("active");
+      document.querySelectorAll(".page").forEach(function(p){ p.classList.remove("active"); });
+      document.getElementById("page-" + btn.dataset.page).classList.add("active");
+      if(btn.dataset.page === "shopping"){ renderShopping(); }
+    });
+  });
+
+  /* ---------- Load recipes ---------- */
+  fetch("recipes.json")
+    .then(function(res){ return res.json(); })
+    .then(function(data){
+      state.recipes = data;
+      renderCategoryTabs();
+      renderRecipes();
+      renderShopping();
+    })
+    .catch(function(err){
+      document.getElementById("recipeList").innerHTML =
+        '<div class="empty-state">Could not load recipes.json — make sure it sits alongside diet-planner.html.</div>';
+      console.error(err);
+    });
+
+  /* ---------- Category tabs ---------- */
+  function renderCategoryTabs(){
+    var categories = ["all"];
+    state.recipes.forEach(function(r){
+      if(categories.indexOf(r.category) === -1) categories.push(r.category);
+    });
+    var wrap = document.getElementById("categoryTabs");
+    wrap.innerHTML = "";
+    categories.forEach(function(cat){
+      var b = document.createElement("button");
+      b.textContent = cat;
+      if(cat === state.activeCategory) b.classList.add("active");
+      b.addEventListener("click", function(){
+        state.activeCategory = cat;
+        renderCategoryTabs();
+        renderRecipes();
+      });
+      wrap.appendChild(b);
+    });
+  }
+
+  /* ---------- Recipes list ---------- */
+  function renderRecipes(){
+    var list = document.getElementById("recipeList");
+    var filtered = state.recipes.filter(function(r){
+      return state.activeCategory === "all" || r.category === state.activeCategory;
+    });
+
+    document.getElementById("recipeCount").textContent =
+      filtered.length + (filtered.length === 1 ? " recipe" : " recipes");
+
+    list.innerHTML = "";
+
+    filtered.forEach(function(recipe){
+      var isChecked = !!state.selected[recipe.id];
+      var isExpanded = !!state.expanded[recipe.id];
+      var multiplier = state.batches[recipe.id] || 1;
+
+      var card = document.createElement("div");
+      card.className = "recipe-card" + (isChecked ? " checked" : "") + (isExpanded ? " expanded" : "");
+
+      var head = document.createElement("div");
+      head.className = "recipe-card-head";
+
+      var checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.checked = isChecked;
+      checkbox.setAttribute("aria-label", "Select " + recipe.name);
+      checkbox.addEventListener("click", function(e){ e.stopPropagation(); });
+      checkbox.addEventListener("change", function(){
+        state.selected[recipe.id] = checkbox.checked;
+        if(checkbox.checked && !state.batches[recipe.id]){
+          state.batches[recipe.id] = 1;
+        }
+        saveJSON(STORAGE_SELECTED, state.selected);
+        saveJSON(STORAGE_BATCHES, state.batches);
+        renderRecipes();
+      });
+
+      var titleWrap = document.createElement("div");
+      titleWrap.className = "title";
+      var h4 = document.createElement("h4");
+      h4.textContent = recipe.name;
+      var catSpan = document.createElement("span");
+      catSpan.className = "cat";
+      catSpan.textContent = recipe.category;
+      titleWrap.appendChild(h4);
+      titleWrap.appendChild(catSpan);
+
+      head.appendChild(checkbox);
+      head.appendChild(titleWrap);
+
+      if(isChecked){
+        var multWrap = document.createElement("div");
+        multWrap.className = "multiplier";
+        var label = document.createElement("span");
+        label.textContent = "×";
+        var input = document.createElement("input");
+        input.type = "number";
+        input.min = "1";
+        input.step = "1";
+        input.value = multiplier;
+        input.addEventListener("click", function(e){ e.stopPropagation(); });
+        input.addEventListener("change", function(){
+          var val = parseInt(input.value, 10);
+          if(isNaN(val) || val < 1) val = 1;
+          state.batches[recipe.id] = val;
+          saveJSON(STORAGE_BATCHES, state.batches);
+          input.value = val;
+          renderShopping();
+        });
+        multWrap.appendChild(label);
+        multWrap.appendChild(input);
+        head.appendChild(multWrap);
+      }
+
+      var arrow = document.createElement("span");
+      arrow.className = "expand-arrow";
+      head.appendChild(arrow);
+
+      head.addEventListener("click", function(){
+        state.expanded[recipe.id] = !state.expanded[recipe.id];
+        renderRecipes();
+      });
+
+      var body = document.createElement("div");
+      body.className = "recipe-card-body";
+      var bodyInner = document.createElement("div");
+      bodyInner.className = "recipe-card-body-inner";
+
+      // Cook together: combined ingredients
+      var combined = combineIngredients(recipe.dave, recipe.mel);
+      var cookSection = document.createElement("div");
+      cookSection.className = "ingredient-section";
+      var cookLabel = document.createElement("h5");
+      cookLabel.textContent = "Cook together";
+      cookSection.appendChild(cookLabel);
+      combined.forEach(function(item){
+        cookSection.appendChild(ingredientRow(item.name, item.display));
+      });
+      bodyInner.appendChild(cookSection);
+
+      var divideNote = document.createElement("div");
+      divideNote.className = "divide-note";
+      divideNote.textContent = "Then divide as follows:";
+      bodyInner.appendChild(divideNote);
+
+      var splitGrid = document.createElement("div");
+      splitGrid.className = "split-grid";
+
+      var daveCol = document.createElement("div");
+      var daveLabel = document.createElement("h5");
+      daveLabel.textContent = "Dave";
+      daveCol.appendChild(daveLabel);
+      recipe.dave.forEach(function(ing){
+        daveCol.appendChild(ingredientRow(ing.name, ing.quantity));
+      });
+
+      var melCol = document.createElement("div");
+      var melLabel = document.createElement("h5");
+      melLabel.textContent = "Mel";
+      melCol.appendChild(melLabel);
+      recipe.mel.forEach(function(ing){
+        melCol.appendChild(ingredientRow(ing.name, ing.quantity));
+      });
+
+      splitGrid.appendChild(daveCol);
+      splitGrid.appendChild(melCol);
+      bodyInner.appendChild(splitGrid);
+
+      var methodLabel = document.createElement("h5");
+      methodLabel.textContent = "Method";
+      methodLabel.style.marginBottom = "1rem";
+      bodyInner.appendChild(methodLabel);
+
+      var ol = document.createElement("ol");
+      ol.className = "method-list";
+      recipe.method.forEach(function(step){
+        var li = document.createElement("li");
+        li.textContent = step;
+        ol.appendChild(li);
+      });
+      bodyInner.appendChild(ol);
+
+      body.appendChild(bodyInner);
+
+      card.appendChild(head);
+      card.appendChild(body);
+      list.appendChild(card);
+
+      // Set max-height for smooth expand/collapse after insertion
+      if(isExpanded){
+        requestAnimationFrame(function(){
+          body.style.maxHeight = bodyInner.scrollHeight + "px";
+        });
+      } else {
+        body.style.maxHeight = "0px";
+      }
+    });
+  }
+
+  function ingredientRow(name, qty){
+    var row = document.createElement("div");
+    row.className = "ingredient-row";
+    var n = document.createElement("span");
+    n.textContent = name;
+    var q = document.createElement("span");
+    q.className = "qty";
+    q.textContent = qty;
+    row.appendChild(n);
+    row.appendChild(q);
+    return row;
+  }
+
+  /* Combine dave+mel ingredient lists for "cook together" display (parses numeric values where possible) */
+  function combineIngredients(daveList, melList){
+    var map = {};
+    var order = [];
+    [daveList, melList].forEach(function(list){
+      list.forEach(function(ing){
+        var parsed = parseQuantity(ing.quantity);
+        if(!map[ing.name]){
+          map[ing.name] = { unit: parsed.unit, total: 0, parts: [] };
+          order.push(ing.name);
+        }
+        map[ing.name].total += parsed.value;
+        map[ing.name].parts.push(ing.quantity);
+      });
+    });
+    return order.map(function(name){
+      var entry = map[name];
+      var display = formatQuantity(entry.total, entry.unit);
+      return { name: name, display: display };
+    });
+  }
+
+  /* Parses strings like "150g", "2 tbsp", "0.5 lemon", "1" into {value, unit} */
+  function parseQuantity(str){
+    str = String(str).trim();
+    var match = str.match(/^([\d.]+)\s*(.*)$/);
+    if(match){
+      return { value: parseFloat(match[1]), unit: match[2].trim() };
+    }
+    return { value: 0, unit: str };
+  }
+
+  function formatQuantity(value, unit){
+    var rounded = Math.round(value * 100) / 100;
+    var str = rounded % 1 === 0 ? String(rounded) : String(rounded);
+    return unit ? (str + (unit.match(/^[a-zA-Z]/) && !unit.match(/^(g|ml|kg|l)$/) ? " " + unit : unit)) : str;
+  }
+
+  /* ---------- Shopping list ---------- */
+  var INGREDIENT_GROUPS = {
+    "Proteins": ["chicken","tuna","salmon","beef sirloin","ground turkey","egg whites","egg","feta","protein powder"],
+    "Vegetables": ["spinach","mushrooms","bell pepper","greens","cherry tomatoes","cucumber","tomato","red onion","onion","asparagus","broccoli","snap peas","celery"],
+    "Fruits": ["blueberries","lemon"],
+    "Grains": ["oats","pasta","rice","quinoa","breadcrumbs"],
+    "Dairy": ["yogurt","milk","butter"],
+    "Pantry": ["honey","vanilla","olive oil","tahini","soy sauce","sesame oil","garlic cloves","chickpeas","olives","peanut butter"]
+  };
+
+  function groupFor(ingredientName){
+    var lower = ingredientName.toLowerCase();
+    for(var group in INGREDIENT_GROUPS){
+      if(INGREDIENT_GROUPS[group].indexOf(lower) !== -1) return group;
+    }
+    return "Other";
+  }
+
+  function renderShopping(){
+    var tagsWrap = document.getElementById("shoppingTags");
+    var groupsWrap = document.getElementById("shoppingGroups");
+    tagsWrap.innerHTML = "";
+    groupsWrap.innerHTML = "";
+
+    var selectedRecipes = state.recipes.filter(function(r){ return state.selected[r.id]; });
+
+    if(selectedRecipes.length === 0){
+      tagsWrap.style.display = "none";
+      groupsWrap.innerHTML = '<div class="empty-state">No recipes selected yet — choose recipes on the Recipes page to build your shopping list.</div>';
+      return;
+    }
+    tagsWrap.style.display = "flex";
+
+    selectedRecipes.forEach(function(r){
+      var mult = state.batches[r.id] || 1;
+      var tag = document.createElement("span");
+      tag.className = "shopping-tag";
+      tag.innerHTML = r.name + " <b>×" + mult + "</b>";
+      tagsWrap.appendChild(tag);
+    });
+
+    // Aggregate ingredients across dave+mel, multiplied by batch
+    var groupTotals = {};
+    var groupOrder = ["Proteins","Vegetables","Fruits","Grains","Dairy","Pantry","Other"];
+    groupOrder.forEach(function(g){ groupTotals[g] = {}; });
+
+    selectedRecipes.forEach(function(r){
+      var mult = state.batches[r.id] || 1;
+      [r.dave, r.mel].forEach(function(list){
+        list.forEach(function(ing){
+          var parsed = parseQuantity(ing.quantity);
+          var group = groupFor(ing.name);
+          if(!groupTotals[group][ing.name]){
+            groupTotals[group][ing.name] = { value: 0, unit: parsed.unit };
+          }
+          groupTotals[group][ing.name].value += parsed.value * mult;
+        });
+      });
+    });
+
+    var anyRendered = false;
+    groupOrder.forEach(function(group){
+      var items = groupTotals[group];
+      var names = Object.keys(items);
+      if(names.length === 0) return;
+      anyRendered = true;
+
+      var section = document.createElement("div");
+      section.className = "shop-group";
+      var h5 = document.createElement("h5");
+      h5.textContent = group;
+      section.appendChild(h5);
+
+      names.sort().forEach(function(name){
+        var item = items[name];
+        var row = document.createElement("div");
+        row.className = "shop-item";
+        var n = document.createElement("span");
+        n.textContent = name;
+        var q = document.createElement("span");
+        q.className = "qty";
+        q.textContent = formatQuantity(item.value, item.unit);
+        row.appendChild(n);
+        row.appendChild(q);
+        section.appendChild(row);
+      });
+
+      groupsWrap.appendChild(section);
+    });
+
+    if(!anyRendered){
+      groupsWrap.innerHTML = '<div class="empty-state">No ingredients to show.</div>';
+    }
+  }
+
+})();
+</script>
+</body>
+</html>

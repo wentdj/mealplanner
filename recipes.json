@@ -1,0 +1,277 @@
+[
+  {
+    "id": 1,
+    "name": "Overnight Oats",
+    "category": "breakfast",
+    "method": [
+      "Combine the oats, milk and vanilla in a jar or bowl and stir well.",
+      "Swirl in the honey, then fold through the yogurt until evenly combined.",
+      "Cover and refrigerate for at least 6 hours, or overnight.",
+      "Top with the blueberries just before serving."
+    ],
+    "dave": [
+      { "name": "Oats", "quantity": "80g" },
+      { "name": "Yogurt", "quantity": "150g" },
+      { "name": "Milk", "quantity": "120ml" },
+      { "name": "Honey", "quantity": "1 tbsp" },
+      { "name": "Blueberries", "quantity": "100g" },
+      { "name": "Vanilla", "quantity": "0.5 tsp" }
+    ],
+    "mel": [
+      { "name": "Oats", "quantity": "60g" },
+      { "name": "Yogurt", "quantity": "120g" },
+      { "name": "Milk", "quantity": "100ml" },
+      { "name": "Honey", "quantity": "0.75 tbsp" },
+      { "name": "Blueberries", "quantity": "80g" },
+      { "name": "Vanilla", "quantity": "0.5 tsp" }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Egg White Omelet",
+    "category": "breakfast",
+    "method": [
+      "Whisk the egg whites in a bowl until slightly frothy.",
+      "Melt the butter in a non-stick pan over medium heat.",
+      "Add the mushrooms and bell pepper and saute for 3-4 minutes until softened.",
+      "Add the spinach and cook until just wilted.",
+      "Pour in the egg whites, tilting the pan to spread evenly, and cook for 2-3 minutes.",
+      "Fold the omelet in half once set and slide onto a plate."
+    ],
+    "dave": [
+      { "name": "Egg whites", "quantity": "8" },
+      { "name": "Spinach", "quantity": "100g" },
+      { "name": "Mushrooms", "quantity": "80g" },
+      { "name": "Bell pepper", "quantity": "50g" },
+      { "name": "Butter", "quantity": "1 tsp" }
+    ],
+    "mel": [
+      { "name": "Egg whites", "quantity": "6" },
+      { "name": "Spinach", "quantity": "80g" },
+      { "name": "Mushrooms", "quantity": "60g" },
+      { "name": "Bell pepper", "quantity": "40g" },
+      { "name": "Butter", "quantity": "0.75 tsp" }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Grilled Chicken Salad",
+    "category": "lunch",
+    "method": [
+      "Season the chicken and grill or pan-sear for 6-7 minutes per side until cooked through.",
+      "Rest the chicken for 5 minutes, then slice.",
+      "Toss the greens, cherry tomatoes and cucumber together in a large bowl.",
+      "Drizzle with olive oil and toss again.",
+      "Top the salad with the sliced chicken."
+    ],
+    "dave": [
+      { "name": "Chicken", "quantity": "250g" },
+      { "name": "Greens", "quantity": "150g" },
+      { "name": "Cherry tomatoes", "quantity": "100g" },
+      { "name": "Cucumber", "quantity": "80g" },
+      { "name": "Olive oil", "quantity": "2 tbsp" }
+    ],
+    "mel": [
+      { "name": "Chicken", "quantity": "200g" },
+      { "name": "Greens", "quantity": "120g" },
+      { "name": "Cherry tomatoes", "quantity": "80g" },
+      { "name": "Cucumber", "quantity": "60g" },
+      { "name": "Olive oil", "quantity": "1.5 tbsp" }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Greek Salad with Feta",
+    "category": "lunch",
+    "method": [
+      "Chop the cucumber, tomato and red onion into bite-sized pieces.",
+      "Combine in a bowl with the olives.",
+      "Crumble the feta over the top.",
+      "Drizzle with olive oil and toss gently to combine."
+    ],
+    "dave": [
+      { "name": "Cucumber", "quantity": "150g" },
+      { "name": "Tomato", "quantity": "150g" },
+      { "name": "Red onion", "quantity": "50g" },
+      { "name": "Feta", "quantity": "100g" },
+      { "name": "Olives", "quantity": "50g" },
+      { "name": "Olive oil", "quantity": "2 tbsp" }
+    ],
+    "mel": [
+      { "name": "Cucumber", "quantity": "120g" },
+      { "name": "Tomato", "quantity": "120g" },
+      { "name": "Red onion", "quantity": "40g" },
+      { "name": "Feta", "quantity": "80g" },
+      { "name": "Olives", "quantity": "40g" },
+      { "name": "Olive oil", "quantity": "1.5 tbsp" }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Tuna Pasta",
+    "category": "lunch",
+    "method": [
+      "Cook the pasta according to packet instructions, then drain and cool slightly.",
+      "Finely chop the celery and tomato.",
+      "In a large bowl, combine the yogurt, a squeeze of lemon juice, celery and tomato.",
+      "Fold in the tuna and the cooked pasta until evenly coated."
+    ],
+    "dave": [
+      { "name": "Pasta", "quantity": "180g" },
+      { "name": "Tuna", "quantity": "150g" },
+      { "name": "Yogurt", "quantity": "100g" },
+      { "name": "Tomato", "quantity": "80g" },
+      { "name": "Celery", "quantity": "50g" },
+      { "name": "Lemon", "quantity": "0.5" }
+    ],
+    "mel": [
+      { "name": "Pasta", "quantity": "140g" },
+      { "name": "Tuna", "quantity": "120g" },
+      { "name": "Yogurt", "quantity": "80g" },
+      { "name": "Tomato", "quantity": "60g" },
+      { "name": "Celery", "quantity": "40g" },
+      { "name": "Lemon", "quantity": "0.5" }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Quinoa Power Bowl",
+    "category": "lunch",
+    "method": [
+      "Rinse the quinoa and cook according to packet instructions, then cool slightly.",
+      "Whisk the tahini with the juice of the lemon to make a dressing.",
+      "Chop the cucumber, tomato and bell pepper.",
+      "Combine the quinoa, chickpeas, cucumber, tomato and bell pepper in a bowl.",
+      "Drizzle with the tahini dressing and toss to combine."
+    ],
+    "dave": [
+      { "name": "Quinoa", "quantity": "150g" },
+      { "name": "Chickpeas", "quantity": "120g" },
+      { "name": "Cucumber", "quantity": "100g" },
+      { "name": "Tomato", "quantity": "100g" },
+      { "name": "Bell pepper", "quantity": "80g" },
+      { "name": "Tahini", "quantity": "2 tbsp" },
+      { "name": "Lemon", "quantity": "1" }
+    ],
+    "mel": [
+      { "name": "Quinoa", "quantity": "120g" },
+      { "name": "Chickpeas", "quantity": "100g" },
+      { "name": "Cucumber", "quantity": "80g" },
+      { "name": "Tomato", "quantity": "80g" },
+      { "name": "Bell pepper", "quantity": "60g" },
+      { "name": "Tahini", "quantity": "1.5 tbsp" },
+      { "name": "Lemon", "quantity": "0.75" }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Salmon with Asparagus",
+    "category": "dinner",
+    "method": [
+      "Preheat the oven to 200C (400F).",
+      "Mince the garlic and arrange the salmon and asparagus on a lined baking tray.",
+      "Drizzle with olive oil and scatter over the garlic.",
+      "Roast for 12-15 minutes until the salmon is cooked through.",
+      "Finish with a squeeze of lemon before serving."
+    ],
+    "dave": [
+      { "name": "Salmon", "quantity": "200g" },
+      { "name": "Asparagus", "quantity": "200g" },
+      { "name": "Lemon", "quantity": "0.5" },
+      { "name": "Olive oil", "quantity": "1 tbsp" },
+      { "name": "Garlic cloves", "quantity": "2" }
+    ],
+    "mel": [
+      { "name": "Salmon", "quantity": "150g" },
+      { "name": "Asparagus", "quantity": "150g" },
+      { "name": "Lemon", "quantity": "0.5" },
+      { "name": "Olive oil", "quantity": "0.75 tbsp" },
+      { "name": "Garlic cloves", "quantity": "1" }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Turkey Meatballs with Rice",
+    "category": "dinner",
+    "method": [
+      "Finely chop the onion and mince the garlic.",
+      "In a bowl, combine the ground turkey, breadcrumbs, egg, onion and garlic. Mix well and shape into meatballs.",
+      "Heat a pan over medium heat and cook the meatballs for 10-12 minutes, turning occasionally, until browned and cooked through.",
+      "Meanwhile, cook the rice according to packet instructions.",
+      "Serve the meatballs over the rice."
+    ],
+    "dave": [
+      { "name": "Ground turkey", "quantity": "250g" },
+      { "name": "Rice", "quantity": "150g" },
+      { "name": "Breadcrumbs", "quantity": "30g" },
+      { "name": "Egg", "quantity": "1" },
+      { "name": "Onion", "quantity": "0.5" },
+      { "name": "Garlic cloves", "quantity": "2" }
+    ],
+    "mel": [
+      { "name": "Ground turkey", "quantity": "200g" },
+      { "name": "Rice", "quantity": "120g" },
+      { "name": "Breadcrumbs", "quantity": "25g" },
+      { "name": "Egg", "quantity": "0.5" },
+      { "name": "Onion", "quantity": "0.25" },
+      { "name": "Garlic cloves", "quantity": "1" }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Beef Stir-Fry",
+    "category": "dinner",
+    "method": [
+      "Cook the rice according to packet instructions.",
+      "Slice the beef thinly and mince the garlic.",
+      "Heat the sesame oil in a wok or large pan over high heat.",
+      "Stir-fry the beef for 2-3 minutes until browned, then set aside.",
+      "Add the broccoli, bell pepper and snap peas to the pan and stir-fry for 3-4 minutes.",
+      "Return the beef to the pan with the garlic and soy sauce, and toss everything together for 1-2 minutes.",
+      "Serve over the cooked rice."
+    ],
+    "dave": [
+      { "name": "Beef sirloin", "quantity": "250g" },
+      { "name": "Rice", "quantity": "150g" },
+      { "name": "Broccoli", "quantity": "150g" },
+      { "name": "Bell pepper", "quantity": "100g" },
+      { "name": "Snap peas", "quantity": "80g" },
+      { "name": "Soy sauce", "quantity": "2 tbsp" },
+      { "name": "Garlic cloves", "quantity": "3" },
+      { "name": "Sesame oil", "quantity": "1 tbsp" }
+    ],
+    "mel": [
+      { "name": "Beef sirloin", "quantity": "200g" },
+      { "name": "Rice", "quantity": "120g" },
+      { "name": "Broccoli", "quantity": "120g" },
+      { "name": "Bell pepper", "quantity": "80g" },
+      { "name": "Snap peas", "quantity": "60g" },
+      { "name": "Soy sauce", "quantity": "1.5 tbsp" },
+      { "name": "Garlic cloves", "quantity": "2" },
+      { "name": "Sesame oil", "quantity": "0.75 tbsp" }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Protein Energy Balls",
+    "category": "snack",
+    "method": [
+      "Combine the peanut butter, honey and protein powder in a bowl and mix until smooth.",
+      "Fold in the oats until evenly combined.",
+      "Roll the mixture into small balls.",
+      "Refrigerate for at least 30 minutes to firm up before eating."
+    ],
+    "dave": [
+      { "name": "Peanut butter", "quantity": "50g" },
+      { "name": "Honey", "quantity": "2 tbsp" },
+      { "name": "Protein powder", "quantity": "30g" },
+      { "name": "Oats", "quantity": "40g" }
+    ],
+    "mel": [
+      { "name": "Peanut butter", "quantity": "40g" },
+      { "name": "Honey", "quantity": "1.5 tbsp" },
+      { "name": "Protein powder", "quantity": "25g" },
+      { "name": "Oats", "quantity": "30g" }
+    ]
+  }
+]
