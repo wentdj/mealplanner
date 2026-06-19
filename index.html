@@ -301,12 +301,33 @@
   /* ---------- Recipes page ---------- */
   .recipes-header{
     display:flex;
-    align-items:flex-end;
+    align-items:center;
     justify-content: space-between;
     margin-bottom: 2rem;
     gap: 1rem;
     flex-wrap: wrap;
   }
+
+  .search-wrap{
+    flex: 1;
+    min-width: 180px;
+    max-width: 260px;
+  }
+
+  .search-wrap input{
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    padding: 0.55rem 0.85rem;
+    transition: border-color var(--ease), background-color var(--ease);
+  }
+  .search-wrap input::placeholder{ color: var(--text-tertiary); }
+  .search-wrap input:focus{ border-color: var(--text-primary); outline:none; }
+  .search-wrap input:focus-visible{ outline: 2px solid var(--text-primary); outline-offset: 2px; }
 
   .category-tabs{
     display:flex;
@@ -635,6 +656,9 @@
   <section class="page" id="page-recipes">
     <div class="recipes-header">
       <h5 id="recipeCount">10 recipes</h5>
+      <div class="search-wrap">
+        <input type="text" id="recipeSearch" placeholder="Search recipes…" aria-label="Search recipes">
+      </div>
       <div class="category-tabs" id="categoryTabs"></div>
     </div>
     <div class="recipe-list" id="recipeList"></div>
@@ -663,7 +687,8 @@
     selected: loadJSON(STORAGE_SELECTED, {}),
     batches: loadJSON(STORAGE_BATCHES, {}),
     expanded: {},
-    activeCategory: "all"
+    activeCategory: "all",
+    searchTerm: ""
   };
 
   function loadJSON(key, fallback){
@@ -718,6 +743,13 @@
       console.error(err);
     });
 
+  /* ---------- Search ---------- */
+  var searchInput = document.getElementById("recipeSearch");
+  searchInput.addEventListener("input", function(){
+    state.searchTerm = searchInput.value.trim().toLowerCase();
+    renderRecipes();
+  });
+
   /* ---------- Category tabs ---------- */
   function renderCategoryTabs(){
     var categories = ["all"];
@@ -739,17 +771,37 @@
     });
   }
 
+  function recipeMatchesSearch(recipe, term){
+    if(!term) return true;
+    if(recipe.name.toLowerCase().indexOf(term) !== -1) return true;
+    var allIngredients = recipe.dave.concat(recipe.mel);
+    return allIngredients.some(function(ing){
+      return ing.name.toLowerCase().indexOf(term) !== -1;
+    });
+  }
+
   /* ---------- Recipes list ---------- */
   function renderRecipes(){
     var list = document.getElementById("recipeList");
     var filtered = state.recipes.filter(function(r){
-      return state.activeCategory === "all" || r.category === state.activeCategory;
+      var matchesCategory = state.activeCategory === "all" || r.category === state.activeCategory;
+      var matchesSearch = recipeMatchesSearch(r, state.searchTerm);
+      return matchesCategory && matchesSearch;
     });
 
     document.getElementById("recipeCount").textContent =
       filtered.length + (filtered.length === 1 ? " recipe" : " recipes");
 
     list.innerHTML = "";
+
+    if(filtered.length === 0){
+      var empty = document.createElement("div");
+      empty.id = "recipeEmpty";
+      empty.className = "empty-state";
+      empty.textContent = "No recipes match your search.";
+      list.appendChild(empty);
+      return;
+    }
 
     filtered.forEach(function(recipe){
       var isChecked = !!state.selected[recipe.id];
